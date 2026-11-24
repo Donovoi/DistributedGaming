@@ -108,9 +108,9 @@ The wire protocol has no built-in authentication or encryption. Use trusted peer
 
 ## First game
 
-Half-Life 2 is the first capture and replay target. Its demo system supports repeatable scenes. It was confirmed in the user's Steam library. No game files, account IDs, or full library lists are stored here.
+Counter-Strike 2 is the next capture candidate. Use a local scene with insecure mode enabled. Check the installed binary, launch mode, and graphics API before capture. No game files, account IDs, or full library lists are stored here.
 
-Baldur's Gate 3 is a later Vulkan candidate. Selection is not integration. Remote Steam sign-in is complete, but no game baseline, capture, or patch has passed yet. See the [game selection record](docs/game-selection.md).
+The installed Linux builds of Half-Life 2 and Tomb Raider are 32-bit. They do not fit the current Linux RenderDoc capture route, which requires x86-64. This does not rule out other capture methods. Remote Steam sign-in is complete. No game baseline, capture, or patch has passed yet. See the [game selection record](docs/game-selection.md).
 
 ## LLM-assisted reversing
 
@@ -120,11 +120,10 @@ An unknown dependency blocks a patch. A plausible explanation or valid schema is
 
 ## Latest change
 
-- Added a remote 64-bit capture image with pinned Ubuntu and RenderDoc source identities.
-- Added an isolated NVIDIA display setup and a capture/replay smoke check.
-- Built and checked the tools on a remote RTX 3070. A Vulkan draw captured and replayed with equal bytes across two replays. See the [capture tool record](docs/validation/capture-tools-2026-11-24.md).
-- Kept game captures and demos out of Git. Game files and account data remain private.
-- Recorded the [detractor review](docs/reviews/0003.md). Required CI checks must pass before merge.
-- Goal progress remains 20%. The cube check closes no game milestone. Linux RenderDoc captures 64-bit programs; the actual game build and capture path still need verification.
+- Inspected the installed Half-Life 2 and Tomb Raider binaries on a remote PC. Both are ELF32 x86.
+- Recorded build IDs and selected binary hashes in the [game build record](docs/validation/game-builds-2026-11-24.md). These identify inspected files; they do not prove full Steam file integrity.
+- Rejected those builds for the current capture route. Selected Counter-Strike 2 for the next compatibility check.
+- Recorded the [detractor review](docs/reviews/0004.md). Required CI checks must pass before merge.
+- Goal progress remains 20%. Installation and compatibility checks close no game milestone.
 
-Next: finish installing and pinning the Half-Life 2 build, then check its binary type. Record an offline demo and a separate game-frame capture. Select a pass only when its measured compute saving can exceed its transfer and merge cost. Keep M3 pending until that evidence exists.
+Next: finish installing Counter-Strike 2. Check its binary and offline launch mode. Pin the build and settings. Record a repeatable local benchmark without the capture tool, then capture a separate game frame. Keep M3 pending until that evidence exists. Select a pass only when its measured compute saving can exceed its transfer and merge cost.

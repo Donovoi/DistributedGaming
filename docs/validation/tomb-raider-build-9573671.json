@@ -1,0 +1,12 @@
+{
+  "app_id": "203160",
+  "build_id": "9573671",
+  "binary": "bin/TombRaider",
+  "sha256": "2a0976574fed1df7b05530e6c142eccbaa6a209d94c35d0ec84ddd11d84ec09c",
+  "bytes": 37716564,
+  "elf_class": "32",
+  "machine": "x86",
+  "native_renderdoc_path_supported": false,
+  "game_run": false,
+  "game_capture": false
+}

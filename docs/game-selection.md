@@ -2,25 +2,25 @@
 
 Date: 24 November 2026.
 
-The user signed in to Steam. The visible library contained Half-Life 2 and Baldur's Gate 3. This record stores only the candidates needed for this project.
+The user signed in to the official Steam client on a remote PC. This record stores only candidates needed for this project.
 
 ## Decision
 
-Use Half-Life 2 for the first capture and replay test. Use an offline scene and a pinned game build. This is an engineering choice for repeatability and small scope. It is not evidence that the game will run faster across the network.
+Check Counter-Strike 2 next. Its official Linux requirements include Vulkan. Installation is in progress. The actual binary and capture path remain unverified. Use only a local scene with `-insecure`. Verify that mode before instrumentation. Do not enter matchmaking during these tests. See [Valve's requirements](https://store.steampowered.com/app/730/CounterStrike_2/).
 
-Half-Life 2 has a demo recording and playback system. Confirm the commands and graphics backend on the installed build. The Source SDK helps with concepts and interfaces; it is not a complete source release of the current commercial renderer. See [Valve's SDK](https://github.com/ValveSoftware/source-sdk-2013) and [Valve's demo documentation](https://developer.valvesoftware.com/wiki/Demo_Recording_Tools).
+The first choice was Half-Life 2. Direct inspection found ELF32 x86 in its installed launcher, engine, and Vulkan wrapper. Tomb Raider's installed Linux executable is also ELF32 x86. Linux RenderDoc supports x86-64. Reject these builds for this capture route. This is not a finding that distributed work is impossible in either game. See the [build evidence](validation/game-builds-2026-11-24.md) and [RenderDoc platform support](https://github.com/baldurk/renderdoc/blob/v1.47/docs/CONTRIBUTING/Compiling.md).
 
-Keep Baldur's Gate 3 as a later Vulkan target. Larian lists Vulkan and DirectX 11 support. Confirm the actual backend and binary on the test PC before capture. See [Larian's requirements](https://larian.com/support/faqs/system-requirements_47).
+Keep Baldur's Gate 3 as a later candidate. Its native Linux release targets Steam Deck. Larian does not support other Linux PCs. Do not assume this build works on the test NVIDIA PCs. See [Larian's native build FAQ](https://larian.com/support/faqs/steam-deck-native-version_121).
 
 ## Pending checks
 
 - Install the selected game on the coordinator through the user's Steam account.
 - Record build ID, executable hash, graphics backend, resolution, and quality settings.
-- Record and replay a fixed offline demo.
-- Measure the single-PC result before any patch.
-- Capture a frame and map its resource dependencies.
+- Confirm demo recording and playback commands on the installed build. Record and replay a fixed local demo on that exact build. Pin the map, camera, playback mode, and demo hash.
+- Measure the single-PC result without RenderDoc before any patch. Keep frame time separate from input delay.
+- Capture a separate frame with actual world geometry. A menu or loading screen does not pass this check. Map the frame's resource dependencies.
 
-No game installation, capture, or patch is complete. M3 remains pending.
+Half-Life 2 and Tomb Raider are installed. Neither was run or captured. Counter-Strike 2 is not yet accepted as the test game. No game baseline, capture, or patch is complete. M3 remains pending.
 
 ## Hardware constraint
 

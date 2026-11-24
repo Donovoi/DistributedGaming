@@ -6,6 +6,16 @@ on:
 permissions:
   contents: read
 jobs:
+  native-oracle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install oracle build dependencies
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends g++ libvulkan-dev libssl-dev
+      - name: Build native oracle
+        run: g++ -std=c++17 -O2 -Wall -Wextra -Werror -Wno-missing-field-initializers tools/native-oracle/main.cpp -lvulkan -lcrypto -o /tmp/native-oracle
+      - name: Check rejected oracle inputs
+        run: python3 tools/native-oracle/test_inputs.py /tmp/native-oracle
   rust:
     strategy:
       matrix:

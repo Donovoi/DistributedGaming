@@ -122,10 +122,10 @@ An unknown dependency blocks a patch. A plausible explanation or valid schema is
 
 ## Latest change
 
-- Corrected the scope of the native reference snapshots. RenderDoc starts a replay prefix when an event is selected. Matching snapshots on either side of a pass do not prove input immutability within one execution.
-- Rejected one comparison from a second capture after its input snapshots differed. That attempt is not part of the fixed GPU fixture. The first fixture's hashes and exact GPU output match remain valid.
-- Kept the Rust probe's isolated input and guard checks separate from the capture replay checks. No runtime code or measured bytes changed.
-- Recorded the [correction and evidence](docs/validation/cs2-reduction-2026-11-24.md) and [detractor review](docs/reviews/0008.md). Required CI checks must pass before merge.
+- Added a small Vulkan tool that runs one fixed, original CS2 shader with supplied buffers. The product harness remains Rust.
+- Matched the sampled output bits for two captured input sets. Each passed three output starting values, input and guard checks, and core and synchronization validation.
+- Added seven checks that reject invalid input before GPU setup. Recorded the [native experiment](docs/validation/cs2-native-oracle-2026-11-24.md) and [detractor review](docs/reviews/0009.md). Required CI checks must pass before merge.
+- Kept the capture replay variation and incomplete game dependency contract open. No original game shader or game resource is included in the repository.
 - Goal progress stays at 30%. M4 remains pending. No game work is distributed and no speedup is proved.
 
-Next: run the original shader in isolation with fixed inputs. Complete the pass execution contract, check a different captured input, and test arithmetic edge cases. Keep the full-frame replay mismatch open. Look for work expensive enough to cover transfer and merge cost; this small reduction has no demonstrated LAN benefit.
+Next: compare the unchanged WGSL calculation with the original shader on the second fixture and on arithmetic edge cases. Look for game work expensive enough to cover transfer and merge costs.

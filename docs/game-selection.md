@@ -14,11 +14,10 @@ Keep Baldur's Gate 3 as a later candidate. Its native Linux release targets Stea
 
 ## Pending checks
 
-- Complete a repeatable single-PC benchmark without RenderDoc. Pin settings and actual output size before and after the measured runs. Record the loaded measurement tools.
-- Keep the SourceTV build, map, demo hash, camera, mode, tick interval, and playback speed fixed. A spectator result is not a player input test.
 - Quantify and explain the replay mismatch. Verify a selected pass and map all its resource dependencies.
+- Measure actual internal render scale and input delay before any equal-quality speedup claim. A spectator result is not a player input test.
 
-Half-Life 2 and Tomb Raider are installed. Neither was run or captured. Counter-Strike 2 has a real frame capture, but no accepted baseline or verified patch. M3 and M4 remain pending.
+Half-Life 2 and Tomb Raider are installed. Neither was run or captured. Counter-Strike 2 now has a [pinned spectator baseline](validation/cs2-baseline-2026-11-24.md) and a separate real frame capture. M3 is complete. M4 remains pending. No game patch is verified.
 
 ## Hardware constraint
 

@@ -13,7 +13,7 @@ The first test used five physical PCs over direct Tailscale paths on a wired net
 Run one supported game across at least two physical PCs. Use the same settings and image quality. Beat the fastest participating PC running alone. Report frame time and input delay separately.
 
 <!-- progress:start -->
-Goal progress: **20%** (20/100 accepted milestone points).
+Goal progress: **30%** (30/100 accepted milestone points).
 
 This is a checklist score. It is not an estimate of time, effort, or game speedup.
 
@@ -21,7 +21,7 @@ This is a checklist score. It is not an estimate of time, effort, or game speedu
 | --- | --- | ---: | --- |
 | M1 | Rust harness and failure tests | 10 | complete |
 | M2 | Transport on physical PCs | 10 | complete |
-| M3 | Selected game baseline | 10 | pending |
+| M3 | Selected game baseline | 10 | complete |
 | M4 | Capture and replay game work | 20 | pending |
 | M5 | Split one game pass | 15 | pending |
 | M6 | Game correctness and recovery | 15 | pending |
@@ -102,7 +102,7 @@ The wire protocol has no built-in authentication or encryption. Use trusted peer
 - Reference rendering, exact comparison, and report writing are outside the timed interval. Run order alternates.
 - `local_parallel_over_distributed_median` is above 1 only if the distributed median is lower. It does not measure game FPS.
 - `physical_host_count_verified` stays false in the automatic report. IP addresses alone cannot prove separate hardware. The test record supplies the manual host check.
-- `game_speedup_proven` stays false. No game benchmark has passed yet.
+- `game_speedup_proven` stays false. No distributed game result has proved a benefit.
 - Ten samples are a smoke test. Do not use them for a broad performance claim. `p95` uses nearest rank.
 - Network reads and writes share an absolute job deadline. CPU rendering is bounded by ray count; a socket deadline does not preempt CPU work.
 
@@ -110,7 +110,7 @@ The wire protocol has no built-in authentication or encryption. Use trusted peer
 
 Counter-Strike 2 is the current test game. Its installed Linux binary is 64-bit. A local SourceTV demo ran with `-insecure` and was captured through Vulkan. The capture contains world geometry. This is a spectator scene on an isolated display. It does not measure player input or display delay. No game files, account IDs, or full library lists are stored here.
 
-The installed Linux builds of Half-Life 2 and Tomb Raider are 32-bit. They do not fit the current Linux RenderDoc capture route, which requires x86-64. This does not rule out other capture methods. Remote Steam sign-in is complete. The clean baseline and verified pass replay are still pending. See the [game selection record](docs/game-selection.md).
+The installed Linux builds of Half-Life 2 and Tomb Raider are 32-bit. They do not fit the current Linux RenderDoc capture route, which requires x86-64. This does not rule out other capture methods. Remote Steam sign-in and the [CS2 spectator baseline](docs/validation/cs2-baseline-2026-11-24.md) are complete. Verified pass replay is still pending. See the [game selection record](docs/game-selection.md).
 
 ## LLM-assisted reversing
 
@@ -120,11 +120,11 @@ An unknown dependency blocks a patch. A plausible explanation or valid schema is
 
 ## Latest change
 
-- Captured an actual Counter-Strike 2 world frame on a remote RTX 3070. Recorded the game build, executable hash, demo hash, tool build, and capture hash.
-- Inspected 1,577 draw actions and 19 dispatch actions. Read a 1920 by 1080 present image. These counts do not establish independent work or a complete dependency map.
-- Recorded the replay mismatch. A visible image and RenderDoc's non-degraded flag do not prove correct output.
-- Kept preliminary timing runs outside accepted baseline evidence. Final run conditions still need checks.
-- Recorded the [detractor review](docs/reviews/0005.md). Required CI checks must pass before merge.
-- Goal progress remains 20%. M3 needs an accepted baseline. M4 needs verified output from a selected pass.
+- Completed one warmup and three measured CS2 spectator runs on a remote RTX 3070. Checked the pinned build, demo, saved settings, camera endpoints, actual window size, and loaded tools before and after every run.
+- Recorded median present-call intervals of 5.75 to 5.84 ms and p95 intervals of 6.92 to 7.00 ms. These are instrumented rendering-call intervals. Input and display delay were not measured. The 250 ms pause-notification guard is an assumption, not a proved bound.
+- Published numeric samples, the experiment collector, and a checker that recomputes selections and statistics. Raw console logs and game files stay private.
+- Linked the separate real-frame capture. Its replay mismatch remains open. No game work is distributed and no speedup is proved.
+- Recorded the [detractor review](docs/reviews/0006.md). Required CI checks must pass before merge.
+- Goal progress is 30%. M3 is complete. M4 still needs verified output from a selected pass.
 
-Next: finish the clean baseline checks. Pin actual output size, settings, loaded tools, and a repeatable demo interval. Explain the replay difference and map pass dependencies. Select a pass only when its measured compute saving can exceed its transfer and merge cost.
+Next: explain the replay difference and map pass dependencies. Verify one pass against a fixed reference before splitting it. Select work only when its measured compute saving can exceed its transfer and merge cost.

@@ -29,6 +29,8 @@ jobs:
         run: python scripts/check_progress.py
       - name: Test progress checks
         run: python scripts/test_progress.py
+      - name: Check saved CS2 baseline
+        run: python scripts/check_cs2_baseline.py
       - name: Require README change in each PR
         if: github.event_name == 'pull_request'
         env:

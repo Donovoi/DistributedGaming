@@ -2,7 +2,7 @@
 
 Run this procedure on a remote Linux test PC. Do not run it on the user's desktop.
 
-This recipe captures a 64-bit Vulkan test program with RenderDoc. It does not run a game or prove a game speedup. A separate experiment used a sniper SDK build of RenderDoc to capture Counter-Strike 2 inside its Steam runtime. See the [game capture record](validation/cs2-capture-2026-11-24.md). Do not use the Ubuntu-built capture library inside sniper: its library requirements differ. M3 stays pending.
+This recipe captures a 64-bit Vulkan test program with RenderDoc. It does not run a game or prove a game speedup. A separate experiment used a sniper SDK build of RenderDoc to capture Counter-Strike 2 inside its Steam runtime. See the [game capture record](validation/cs2-capture-2026-11-24.md) and the later [M3 baseline](validation/cs2-baseline-2026-11-24.md). Do not use the Ubuntu-built capture library inside sniper: its library requirements differ.
 
 ## Requirements
 
@@ -102,7 +102,7 @@ The image requests host graphics libraries through the NVIDIA runtime. It does n
 
 RenderDoc supports Linux x86-64. The i386 runtime packages and `compat32` setting do not provide 32-bit RenderDoc capture or missing 32-bit host NVIDIA libraries. Inspect the actual game's ELF class before choosing its capture path.
 
-Steam is not installed in this image. Steam sign-in and game installation are separate work. The cube result does not close M3 or M4. M3 still needs a pinned game build, fixed settings, repeatable benchmark, and real game-frame capture. M4 needs verified replay of a selected game pass.
+Steam is not installed in this image. Steam sign-in and game installation are separate work. The cube result does not close M3 or M4. The separate CS2 experiments completed M3. M4 still needs verified replay of a selected game pass.
 
 Keep timing runs separate from capture runs. Capture injection changes execution cost. No timing or input-delay claim comes from this smoke test.
 

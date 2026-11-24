@@ -2,7 +2,7 @@
 
 Run this procedure on a remote Linux test PC. Do not run it on the user's desktop.
 
-This environment captures a 64-bit Vulkan test program with RenderDoc. It does not run a game or prove a game speedup. M3 stays pending.
+This recipe captures a 64-bit Vulkan test program with RenderDoc. It does not run a game or prove a game speedup. A separate experiment used a sniper SDK build of RenderDoc to capture Counter-Strike 2 inside its Steam runtime. See the [game capture record](validation/cs2-capture-2026-11-24.md). Do not use the Ubuntu-built capture library inside sniper: its library requirements differ. M3 stays pending.
 
 ## Requirements
 

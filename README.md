@@ -4,7 +4,7 @@ Use several PCs to share selected game work. Rust runs the harness. A game adapt
 
 ## Current state
 
-The Rust harness runs a fixed CPU ray-tracing test scene across TCP workers. It checks every output byte against a local full-frame render. It does not capture, patch, or run a game. The separate [capture environment](docs/capture-environment.md) now captures and replays a 64-bit Vulkan test cube on a remote NVIDIA GPU. This is a tool check, not a game test.
+The Rust harness runs a fixed CPU ray-tracing test scene across TCP workers. It checks every output byte against a local full-frame render. It does not capture, patch, or run a game. Separate tools have now captured a Counter-Strike 2 world frame on a remote NVIDIA GPU. Replay produced a visible scene, but repeated replay did not match every byte. See the [game capture record](docs/validation/cs2-capture-2026-11-24.md). No game work is distributed yet.
 
 The first test used five physical PCs over direct Tailscale paths on a wired network. Each active wired link reported 1 Gb/s. All 24 frames passed exact pixel checks. Distributed work was slower in both tests. See the [test record](docs/validation/2026-11-24.md).
 
@@ -108,9 +108,9 @@ The wire protocol has no built-in authentication or encryption. Use trusted peer
 
 ## First game
 
-Counter-Strike 2 is the next capture candidate. Use a local scene with insecure mode enabled. Check the installed binary, launch mode, and graphics API before capture. No game files, account IDs, or full library lists are stored here.
+Counter-Strike 2 is the current test game. Its installed Linux binary is 64-bit. A local SourceTV demo ran with `-insecure` and was captured through Vulkan. The capture contains world geometry. This is a spectator scene on an isolated display. It does not measure player input or display delay. No game files, account IDs, or full library lists are stored here.
 
-The installed Linux builds of Half-Life 2 and Tomb Raider are 32-bit. They do not fit the current Linux RenderDoc capture route, which requires x86-64. This does not rule out other capture methods. Remote Steam sign-in is complete. No game baseline, capture, or patch has passed yet. See the [game selection record](docs/game-selection.md).
+The installed Linux builds of Half-Life 2 and Tomb Raider are 32-bit. They do not fit the current Linux RenderDoc capture route, which requires x86-64. This does not rule out other capture methods. Remote Steam sign-in is complete. The clean baseline and verified pass replay are still pending. See the [game selection record](docs/game-selection.md).
 
 ## LLM-assisted reversing
 
@@ -120,10 +120,11 @@ An unknown dependency blocks a patch. A plausible explanation or valid schema is
 
 ## Latest change
 
-- Inspected the installed Half-Life 2 and Tomb Raider binaries on a remote PC. Both are ELF32 x86.
-- Recorded build IDs and selected binary hashes in the [game build record](docs/validation/game-builds-2026-11-24.md). These identify inspected files; they do not prove full Steam file integrity.
-- Rejected those builds for the current capture route. Selected Counter-Strike 2 for the next compatibility check.
-- Recorded the [detractor review](docs/reviews/0004.md). Required CI checks must pass before merge.
-- Goal progress remains 20%. Installation and compatibility checks close no game milestone.
+- Captured an actual Counter-Strike 2 world frame on a remote RTX 3070. Recorded the game build, executable hash, demo hash, tool build, and capture hash.
+- Inspected 1,577 draw actions and 19 dispatch actions. Read a 1920 by 1080 present image. These counts do not establish independent work or a complete dependency map.
+- Recorded the replay mismatch. A visible image and RenderDoc's non-degraded flag do not prove correct output.
+- Kept preliminary timing runs outside accepted baseline evidence. Final run conditions still need checks.
+- Recorded the [detractor review](docs/reviews/0005.md). Required CI checks must pass before merge.
+- Goal progress remains 20%. M3 needs an accepted baseline. M4 needs verified output from a selected pass.
 
-Next: finish installing Counter-Strike 2. Check its binary and offline launch mode. Pin the build and settings. Record a repeatable local benchmark without the capture tool, then capture a separate game frame. Keep M3 pending until that evidence exists. Select a pass only when its measured compute saving can exceed its transfer and merge cost.
+Next: finish the clean baseline checks. Pin actual output size, settings, loaded tools, and a repeatable demo interval. Explain the replay difference and map pass dependencies. Select a pass only when its measured compute saving can exceed its transfer and merge cost.

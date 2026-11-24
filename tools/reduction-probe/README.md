@@ -34,6 +34,8 @@ The three CPU tests check missing files, wrong sizes, and the difference between
 
 The native reference comes from the original shader during unmodified capture replay. It is not a readback of a live game's original output. The separate whole-frame replay mismatch remains unresolved.
 
+The first capture's inputs matched at the two selected event endpoints. RenderDoc replays the prefix for each event selection, so those snapshots do not prove that native inputs stayed unchanged within one execution. The Rust probe's own input and guard checks apply to its isolated dispatch and are separate checks.
+
 The WGSL calculation matched this one native reference on the tested GPU. A scalar implementation differed by one floating-point step and failed the exact check. No tolerance was added. Exact results may differ on other hardware or for other inputs.
 
 M4 still needs a second, different captured case, arithmetic edge cases, and a complete execution contract. This tool checks fixed inputs; it is not a general game profile loader. It supplies no evidence of LAN benefit. See the [experiment record](../../docs/validation/cs2-reduction-2026-11-24.md).

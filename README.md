@@ -60,7 +60,7 @@ On Windows, use `python` and `target\release\dg.exe`.
    target/release/dg bench --worker 127.0.0.1:47000 --frames 10 --warmup 2
    ```
 
-3. Check the JSON output. `verified_frames` must be 12. `network_scope` must be `loopback_only`. A failed job returns a nonzero exit code. The worker stops after 12 connections.
+3. Check the JSON output. `verified_frames` must be 12. `network_scope` must be `loopback_only`. A failed benchmark returns a nonzero exit code. The worker logs a failed connection and continues until its connection limit. It stops after 12 connections in this example.
 
 This test uses one PC. It does not prove LAN scaling.
 
@@ -81,7 +81,7 @@ This test uses one PC. It does not prove LAN scaling.
 
 4. Check all pixels and timings. The coordinator also renders one tile. Keep raw reports private: they contain worker addresses. Use a new report filename for each run.
 
-The wire protocol has no built-in authentication or encryption. Use trusted peers on a private network, Tailscale, or SSH tunnels. The default worker binds to loopback. No firewall changes are required by this project. A worker accepts only the fixed scene and tile bounds. It accepts no code, commands, shaders, or file paths.
+The wire protocol has no built-in authentication or encryption. Use trusted peers on a private network, Tailscale, or SSH tunnels. The default worker binds to loopback. The harness does not change firewall rules. A worker accepts only the fixed scene and tile bounds. It accepts no code, commands, shaders, or file paths.
 
 ## Read the result
 

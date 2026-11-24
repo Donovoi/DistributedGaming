@@ -24,36 +24,44 @@ fn hash(data: &[u8]) -> String {
     format!("{:x}", Sha256::digest(data))
 }
 
-fn identity_matches(histogram: &[u8], uniform: &[u8], native: &[u8]) -> bool {
-    hash(histogram) == "a2082ed95408d0c467eba82096d76ba615fab623a289191c0966972250ff24cc"
-        && hash(uniform) == "6f2bbde6bc0e70da2c40539179055dd8a4a38eb58e3cb987356c5ee1ca1a9a5e"
-        && hash(native) == "60f5c1a960699456db2ebfda0da480133311202723e4e1eb5f9d9114ef9e3f3c"
+fn known_identity(histogram: &str, uniform: &str, native: &str) -> Option<serde_json::Value> {
+    let cases: serde_json::Value = serde_json::from_str(include_str!("../cases.json")).ok()?;
+    cases
+        .as_array()?
+        .iter()
+        .find(|case| {
+            case["histogram_sha256"] == histogram
+                && case["uniform_sha256"] == uniform
+                && case["native_output_sha256"] == native
+        })
+        .cloned()
 }
 
 struct Case {
     histogram: Vec<u8>,
     uniform: Vec<u8>,
     native: Vec<u8>,
+    identity: serde_json::Value,
 }
 
 fn load_case(dir: &Path) -> Result<Case, Box<dyn Error>> {
     let histogram = bytes(&dir.join("session-0-histogram.bin"), 1024)?;
     let uniform = bytes(&dir.join("session-0-uniform.bin"), 32)?;
     let native = bytes(&dir.join("session-0-output.bin"), 4)?;
-    if !identity_matches(&histogram, &uniform, &native) {
-        return Err("Reference identity mismatch".into());
-    }
+    let identity = known_identity(&hash(&histogram), &hash(&uniform), &hash(&native))
+        .ok_or("Reference identity mismatch")?;
     Ok(Case {
         histogram,
         uniform,
         native,
+        identity,
     })
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
     let args: Vec<String> = std::env::args().skip(1).collect();
     if args.len() == 1 && args[0] == "--help" {
-        println!("dg-reduction-probe PRIVATE_REFERENCE_DIRECTORY\nFixed CS2 capture case only. Run on a remote NVIDIA Vulkan GPU.\nThis is a reimplementation check, not native shader execution or a game speedup.");
+        println!("dg-reduction-probe PRIVATE_REFERENCE_DIRECTORY\nCompiled fixed cases only. Run on a remote NVIDIA Vulkan GPU.\nThis is a reimplementation check, not native shader execution or a game speedup.");
         return Ok(());
     }
     if args.len() != 1 {
@@ -63,6 +71,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         histogram,
         uniform,
         native,
+        identity,
     } = load_case(Path::new(&args[0]))?;
     let instance = wgpu::Instance::new(&wgpu::InstanceDescriptor {
         backends: wgpu::Backends::VULKAN,
@@ -188,9 +197,11 @@ fn main() -> Result<(), Box<dyn Error>> {
             "histogram_sha256":hash(&histogram),"uniform_sha256":hash(&uniform),
             "native_output_bits":u32::from_le_bytes(native.try_into().unwrap()),
             "wgsl_sha256":hash(include_bytes!("reduce.wgsl")),"reimplementation":true,
-            "profile":"cs2-build-26879581-capture-1-event-6905",
+            "profile":identity["id"],"origin":identity["origin"],
+            "cases_sha256":hash(include_bytes!("../cases.json")),
             "native_shader_sha256":"5b112e9919dff8911604f606a636b324e197cde9797196efd604b5f9ca48f9c7",
-            "source_capture_sha256":"1ed0d19496074b82c2e04819f43529d08a1926e28a115deb7325038d1781cb23",
+            "source_capture_sha256":identity["source_capture_sha256"],
+            "reference_method":"Original pinned shader with fixed isolated buffers",
             "original_shader_executed":false,"game_speedup_proven":false,"runs":reports,
         }))?
     );
@@ -231,11 +242,85 @@ mod tests {
 
     #[test]
     fn correct_sizes_do_not_establish_identity() {
-        assert!(!identity_matches(&[0; 1024], &[0; 32], &[0; 4]));
+        assert!(known_identity(&hash(&[0; 1024]), &hash(&[0; 32]), &hash(&[0; 4])).is_none());
     }
 
     #[test]
     fn missing_case_fails_before_gpu_setup() {
         assert!(load_case(Path::new("missing-dg-probe-case/absent")).is_err());
+    }
+
+    #[test]
+    fn fixed_fixture_mutations_fail_before_gpu_setup() -> Result<(), Box<dyn Error>> {
+        let nonce = std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)?
+            .as_nanos();
+        let dir = std::env::temp_dir().join(format!("dg-case-{}-{nonce}", std::process::id()));
+        std::fs::create_dir(&dir)?;
+        let histogram = vec![0u8; 1024];
+        let mut uniform: Vec<u8> = [1280u32, 720, (-8.0f32).to_bits(), 13.0f32.to_bits()]
+            .into_iter()
+            .flat_map(u32::to_le_bytes)
+            .collect();
+        uniform.resize(32, 0);
+        let native = 998244352u32.to_le_bytes().to_vec();
+        let files = [
+            ("histogram", histogram),
+            ("uniform", uniform),
+            ("output", native),
+        ];
+        for (name, data) in &files {
+            std::fs::write(dir.join(format!("session-0-{name}.bin")), data)?;
+        }
+        let valid = load_case(&dir)?.identity["id"] == "zero";
+        let mut rejected = Vec::new();
+        for (name, data) in &files {
+            let path = dir.join(format!("session-0-{name}.bin"));
+            let mut altered = data.clone();
+            altered[0] ^= 1;
+            std::fs::write(&path, altered)?;
+            rejected.push(load_case(&dir).is_err());
+            for size in [data.len() - 1, data.len() + 1] {
+                std::fs::write(&path, vec![0u8; size])?;
+                rejected.push(load_case(&dir).is_err());
+            }
+            std::fs::write(path, data)?;
+        }
+        std::fs::remove_dir_all(dir)?;
+        assert!(valid && rejected.len() == 9 && rejected.into_iter().all(|r| r));
+        Ok(())
+    }
+
+    #[test]
+    fn case_identity_requires_one_complete_tuple() {
+        let cases: serde_json::Value = serde_json::from_str(include_str!("../cases.json")).unwrap();
+        let first = &cases[0];
+        let second = &cases[1];
+        let h = first["histogram_sha256"].as_str().unwrap();
+        let u = first["uniform_sha256"].as_str().unwrap();
+        let n = first["native_output_sha256"].as_str().unwrap();
+        assert!(known_identity(h, u, n).is_some());
+        assert!(known_identity(second["histogram_sha256"].as_str().unwrap(), u, n).is_none());
+        assert!(known_identity(h, u, &hash(&[0; 4])).is_none());
+    }
+
+    #[test]
+    fn compiled_reference_bits_agree_with_hashes() {
+        let cases: serde_json::Value = serde_json::from_str(include_str!("../cases.json")).unwrap();
+        let mut ids = std::collections::HashSet::new();
+        let mut tuples = std::collections::HashSet::new();
+        for case in cases.as_array().unwrap() {
+            assert!(ids.insert(case["id"].as_str().unwrap()));
+            let h = case["histogram_sha256"].as_str().unwrap();
+            let u = case["uniform_sha256"].as_str().unwrap();
+            let n = case["native_output_sha256"].as_str().unwrap();
+            assert!(tuples.insert((h, u, n)));
+            for digest in [h, u, n] {
+                assert_eq!(digest.len(), 64);
+                assert!(digest.bytes().all(|b| b.is_ascii_hexdigit()));
+            }
+            let bits = u32::try_from(case["native_output_bits"].as_u64().unwrap()).unwrap();
+            assert_eq!(hash(&bits.to_le_bytes()), n);
+        }
     }
 }

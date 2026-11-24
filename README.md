@@ -8,14 +8,14 @@ The Rust harness runs a fixed CPU ray-tracing test scene across TCP workers. It 
 
 The first test used five physical PCs over direct Tailscale paths on a wired network. Each active wired link reported 1 Gb/s. All 24 frames passed exact pixel checks. Distributed work was slower in both tests. See the [test record](docs/validation/2026-11-24.md).
 
-A separate [Rust GPU probe](tools/reduction-probe/README.md) now matches one captured compute output with a WGSL reimplementation. It accepts only one private case. It does not patch the game or send work to another PC. M4 remains pending.
+A separate [Rust GPU probe](tools/reduction-probe/README.md) now matches the original shader on two captured inputs and nine arithmetic cases. M4 is complete for this isolated pass on the tested GPU. The probe accepts only the compiled cases. It does not patch the game or send work to another PC. Original game resource ownership and synchronization still need verification before integration.
 
 ## Goal and progress
 
 Run one supported game across at least two physical PCs. Use the same settings and image quality. Beat the fastest participating PC running alone. Report frame time and input delay separately.
 
 <!-- progress:start -->
-Goal progress: **30%** (30/100 accepted milestone points).
+Goal progress: **50%** (50/100 accepted milestone points).
 
 This is a checklist score. It is not an estimate of time, effort, or game speedup.
 
@@ -24,7 +24,7 @@ This is a checklist score. It is not an estimate of time, effort, or game speedu
 | M1 | Rust harness and failure tests | 10 | complete |
 | M2 | Transport on physical PCs | 10 | complete |
 | M3 | Selected game baseline | 10 | complete |
-| M4 | Capture and replay game work | 20 | pending |
+| M4 | Capture and replay game work | 20 | complete |
 | M5 | Split one game pass | 15 | pending |
 | M6 | Game correctness and recovery | 15 | pending |
 | M7 | Measured game benefit | 10 | pending |
@@ -112,7 +112,7 @@ The wire protocol has no built-in authentication or encryption. Use trusted peer
 
 Counter-Strike 2 is the current test game. Its installed Linux binary is 64-bit. A local SourceTV demo ran with `-insecure` and was captured through Vulkan. The capture contains world geometry. This is a spectator scene on an isolated display. It does not measure player input or display delay. No game files, account IDs, or full library lists are stored here.
 
-The installed Linux builds of Half-Life 2 and Tomb Raider are 32-bit. They do not fit the current Linux RenderDoc capture route, which requires x86-64. This does not rule out other capture methods. Remote Steam sign-in and the [CS2 spectator baseline](docs/validation/cs2-baseline-2026-11-24.md) are complete. Verified pass replay is still pending. See the [game selection record](docs/game-selection.md).
+The installed Linux builds of Half-Life 2 and Tomb Raider are 32-bit. They do not fit the current Linux RenderDoc capture route, which requires x86-64. This does not rule out other capture methods. Remote Steam sign-in, the [CS2 spectator baseline](docs/validation/cs2-baseline-2026-11-24.md), and the [isolated pass replay](docs/validation/cs2-replay-suite-2026-11-24.md) are complete. See the [game selection record](docs/game-selection.md).
 
 ## LLM-assisted reversing
 
@@ -122,10 +122,10 @@ An unknown dependency blocks a patch. A plausible explanation or valid schema is
 
 ## Latest change
 
-- Added a small Vulkan tool that runs one fixed, original CS2 shader with supplied buffers. The product harness remains Rust.
-- Matched the sampled output bits for two captured input sets. Each passed three output starting values, input and guard checks, and core and synchronization validation.
-- Added seven checks that reject invalid input before GPU setup. Recorded the [native experiment](docs/validation/cs2-native-oracle-2026-11-24.md) and [detractor review](docs/reviews/0009.md). Required CI checks must pass before merge.
-- Kept the capture replay variation and incomplete game dependency contract open. No original game shader or game resource is included in the repository.
-- Goal progress stays at 30%. M4 remains pending. No game work is distributed and no speedup is proved.
+- Matched the unchanged captured shader and unchanged WGSL reconstruction on two captured inputs and nine arithmetic cases. All 33 output comparisons were exact. Input and guard checks passed.
+- Added a compiled list of complete input/reference hash tuples, six CPU tests, and a generator for the nine public synthetic fixtures. The generator copies saved reference bits; it does not run the original shader.
+- Recorded the [suite and limits](docs/validation/cs2-replay-suite-2026-11-24.md) and [detractor review](docs/reviews/0010.md). Required CI checks must pass before merge.
+- Completed M4 for this isolated pass on the recorded GPU and driver. Goal progress is 50%. The game's original alias and synchronization checks, full-frame correctness, and other hardware remain open.
+- No game work is distributed and no speedup is proved.
 
-Next: compare the unchanged WGSL calculation with the original shader on the second fixture and on arithmetic edge cases. Look for game work expensive enough to cover transfer and merge costs.
+Next: design and verify a resource-safe two-PC pass path. Check game integration and failure handling before measuring benefit. Continue looking for work large enough to cover network costs.

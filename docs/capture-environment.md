@@ -102,7 +102,7 @@ The image requests host graphics libraries through the NVIDIA runtime. It does n
 
 RenderDoc supports Linux x86-64. The i386 runtime packages and `compat32` setting do not provide 32-bit RenderDoc capture or missing 32-bit host NVIDIA libraries. Inspect the actual game's ELF class before choosing its capture path.
 
-Steam is not installed in this image. Steam sign-in and game installation are separate work. The cube result does not close M3 or M4. The separate CS2 experiments completed M3. M4 still needs verified replay of a selected game pass.
+Steam is not installed in this image. Steam sign-in and game installation are separate work. The cube result does not close M3 or M4. The separate CS2 experiments completed M3 and [M4 for one isolated pass](validation/cs2-replay-suite-2026-11-24.md). That replay result is limited to 11 compiled cases on the tested GPU and driver. Live-game resource integration and full-frame correctness remain pending.
 
 Keep timing runs separate from capture runs. Capture injection changes execution cost. No timing or input-delay claim comes from this smoke test.
 

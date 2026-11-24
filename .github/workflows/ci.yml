@@ -41,6 +41,8 @@ jobs:
         run: cargo +1.93.1 clippy --manifest-path tools/reduction-probe/Cargo.toml --all-targets --locked -- -D warnings
       - name: Test GPU probe input checks
         run: cargo +1.93.1 test --manifest-path tools/reduction-probe/Cargo.toml --all-targets --locked
+      - name: Check synthetic fixture identities
+        run: python tools/reduction-probe/make_synthetic.py runs/reduction-synthetic
       - name: Build GPU probe
         run: cargo +1.93.1 build --manifest-path tools/reduction-probe/Cargo.toml --release --locked
       - name: Check progress

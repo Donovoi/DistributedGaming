@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "program_version": "0.1.0",
+  "scene_version": 1,
+  "workload": "fixed CPU ray tracer; no game or GPU execution",
+  "time_unix_seconds": 1795499725,
+  "coordinator_os": "linux",
+  "coordinator_arch": "x86_64",
+  "coordinator_logical_cpus": 32,
+  "build_debug_assertions": false,
+  "network_scope": "non_loopback_addresses; physical placement must be checked separately",
+  "physical_host_count_verified": false,
+  "game_speedup_proven": false,
+  "frame": {
+    "id": 0,
+    "width": 640,
+    "height": 360,
+    "samples": 16
+  },
+  "worker_addresses": [
+    "worker-1:47000",
+    "worker-2:47000",
+    "worker-3:47000",
+    "worker-4:47000"
+  ],
+  "warmup_frames": 2,
+  "measured_frames": 10,
+  "timeout_ms": 10000,
+  "local_parallel_parts": 5,
+  "remote_pixel_bytes_per_frame": 737280,
+  "verified_frames": 12,
+  "verification": "exact RGBA bytes against a full-frame local render; all frames including warmups",
+  "timing_definition": "wall time through image assembly; includes threads, per-job TCP connect, transfers and compute; excludes reference rendering, comparison and report writing; alternating mode order; CPU work is bounded but not preempted by socket deadlines",
+  "percentile_definition": "p95 uses nearest rank; median averages the two middle values for even counts",
+  "local_parallel": {
+    "median_ms": 38.403386,
+    "p95_ms": 42.10907400000001,
+    "samples_ms": [
+      38.474303,
+      39.891706,
+      19.344648,
+      38.03246,
+      34.354451000000005,
+      41.450805,
+      22.456917999999998,
+      42.10907400000001,
+      38.332469,
+      41.13854
+    ]
+  },
+  "distributed": {
+    "median_ms": 73.3584615,
+    "p95_ms": 75.458752,
+    "samples_ms": [
+      67.624319,
+      73.203251,
+      74.607311,
+      64.891216,
+      73.330927,
+      74.853791,
+      59.699567,
+      74.324139,
+      73.38599599999999,
+      75.458752
+    ]
+  },
+  "local_parallel_over_distributed_median": 0.5235031544384283
+}

@@ -1,0 +1,5 @@
+/target/
+/runs/
+/run-*.json
+*.ppm
+__pycache__/

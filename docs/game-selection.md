@@ -14,10 +14,10 @@ Keep Baldur's Gate 3 as a later candidate. Its native Linux release targets Stea
 
 ## Pending checks
 
-- Quantify and explain the replay mismatch. Verify a selected pass and map all its resource dependencies.
+- Explain the full-frame replay mismatch. Map original game resource ownership, aliases, and producer/consumer ordering before integrating the verified isolated pass.
 - Measure actual internal render scale and input delay before any equal-quality speedup claim. A spectator result is not a player input test.
 
-Half-Life 2 and Tomb Raider are installed. Neither was run or captured. Counter-Strike 2 now has a [pinned spectator baseline](validation/cs2-baseline-2026-11-24.md) and a separate real frame capture. M3 is complete. M4 remains pending. No game patch is verified.
+Half-Life 2 and Tomb Raider are installed. Neither was run or captured. Counter-Strike 2 now has a [pinned spectator baseline](validation/cs2-baseline-2026-11-24.md) and a separate real frame capture. M3 is complete. M4 is complete for [one isolated pass](validation/cs2-replay-suite-2026-11-24.md), limited to the 11 compiled cases on the tested GPU and driver. Live-game integration and full-frame correctness remain pending. No game patch is verified.
 
 ## Hardware constraint
 

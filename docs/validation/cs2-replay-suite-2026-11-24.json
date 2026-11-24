@@ -1,0 +1,567 @@
+{
+  "date_utc": "2026-11-24",
+  "location": "remote PC A",
+  "repository_base": "692ccc3f31b6ff716f761507ebc09cd74575edfb",
+  "scope": "One isolated selected pass; only the 11 compiled cases on the recorded GPU and driver",
+  "main_rs_sha256": "09bc787c0574355d53318bf282333387e993fab5e49106d7336e974505ae8a0c",
+  "binary_sha256": "33e6eb5c463240d5f61396b9708bd47d359755a5155764713ff3fe7f323ccb8a",
+  "cargo_lock_sha256": "20227f90bf357079ab9df4ebfb5ad3dd25b2be2e2a82c30497fff4c2d3be1a4c",
+  "cases_sha256": "8ab77c5dec7e73bd4c440d0328ea0fda44277f1ba3a24048f2eeab9045acfc62",
+  "wgsl_sha256": "a5e66faefef644f61e4272c65ea6fcc250a82085f5881e375029ae44243d0e7c",
+  "wgsl_unchanged_from_first_fixture": true,
+  "native_source_sha256": "23de89a112dc4cdfd7491c7123dad2a33cee8592f171513559898ed6c54f44d1",
+  "native_binary_sha256": "4ad85a66dce75a0dc581362959586f146efec4012f6744cb183de43444939f47",
+  "predeclared_specs_sha256": "4e4cfdb2ae58cd8985cdaf16f1ed5fa9414111f49afc7633a2f88c354de46e00",
+  "private_fixture_generator_sha256": "1a203fc77167e960b983482cfa138cb38ece8fe508bdbab31cec027835ae86b9",
+  "public_fixture_generator_sha256": "9433a302f5dfea74232df3dc76fec759f025838e07d182d52f7268834acdaf59",
+  "native_runner_sha256": "cf9a44306ceade8e4af710c262e4f29ab86dbd6911d33e530e3ebb3a1ba5b10f",
+  "wgsl_runner_sha256": "2bc6461bcde8ee728dd84495a6161dbc08633b9efd4710f2f71aeedc80637ab1",
+  "rust": "1.93.1",
+  "wgpu": "26.0.1",
+  "adapter": "NVIDIA GeForce RTX 3070",
+  "driver": "615.71.09",
+  "build_source_directory": "tools/reduction-probe-suite",
+  "build_target_directory": "tools/reduction-probe/target",
+  "build_command_from_source_directory_with_normalized_relative_target": "CARGO_BUILD_JOBS=6 CARGO_TARGET_DIR=../reduction-probe/target cargo +1.93.1 build --release --locked",
+  "cpu_tests_passed": 6,
+  "native_negative_input_checks_passed": 7,
+  "public_synthetic_identities_verified": 9,
+  "native_dispatches": 33,
+  "wgsl_dispatches": 33,
+  "native_core_and_sync_validation_errors": 0,
+  "exact_output_comparisons_passed": 33,
+  "floating_point_tolerance_added": false,
+  "local_contract_complete": true,
+  "game_integration_contract_complete": false,
+  "whole_frame_correctness_proven": false,
+  "game_speedup_proven": false,
+  "nan_subnormal_or_float_overflow_coverage": false,
+  "other_hardware_validated": false,
+  "gpu_worker_restored": true,
+  "first_wrapper_cleanup_error": "A shell-wide runtime-directory override prevented service restoration. A fresh session restored the service immediately. The final wrapper sets the override only for the probe process and its restore check passed.",
+  "cases": [
+    {
+      "identity": {
+        "id": "capture-1",
+        "origin": "captured fixed input",
+        "source_capture_sha256": "1ed0d19496074b82c2e04819f43529d08a1926e28a115deb7325038d1781cb23",
+        "histogram_sha256": "a2082ed95408d0c467eba82096d76ba615fab623a289191c0966972250ff24cc",
+        "uniform_sha256": "6f2bbde6bc0e70da2c40539179055dd8a4a38eb58e3cb987356c5ee1ca1a9a5e",
+        "native_output_sha256": "60f5c1a960699456db2ebfda0da480133311202723e4e1eb5f9d9114ef9e3f3c",
+        "native_output_bits": 1041600569
+      },
+      "definition": {
+        "id": "capture-1",
+        "origin": "captured fixed input",
+        "source_capture_sha256": "1ed0d19496074b82c2e04819f43529d08a1926e28a115deb7325038d1781cb23",
+        "sampled_output_bits": 1041600569
+      },
+      "native_output_bits": [
+        1041600569,
+        1041600569,
+        1041600569
+      ],
+      "wgsl_output_bits": [
+        1041600569,
+        1041600569,
+        1041600569
+      ],
+      "sentinels": [
+        0,
+        4294967295,
+        305419896
+      ],
+      "all_inputs_and_guards_unchanged": true,
+      "all_outputs_exact": true,
+      "native_validation_errors": 0,
+      "native_log_bytes": 0,
+      "wgsl_log_bytes": 0
+    },
+    {
+      "identity": {
+        "id": "capture-2",
+        "origin": "captured fixed input",
+        "source_capture_sha256": "b394c7afcd2564c880f038120605a25427475c192daf8d80dd6f559e1ed7e346",
+        "histogram_sha256": "8479df67b6317aecc63a54bb73de1cfa6e5fe7dd03d3f8df8ea7469be8b9e8f3",
+        "uniform_sha256": "6f2bbde6bc0e70da2c40539179055dd8a4a38eb58e3cb987356c5ee1ca1a9a5e",
+        "native_output_sha256": "277f9f760cf56455957460d6aacde6459734c9b200e19383d202d258db5dea07",
+        "native_output_bits": 1034300058
+      },
+      "definition": {
+        "id": "capture-2",
+        "origin": "captured fixed input",
+        "source_capture_sha256": "b394c7afcd2564c880f038120605a25427475c192daf8d80dd6f559e1ed7e346",
+        "sampled_output_bits": 1034300058
+      },
+      "native_output_bits": [
+        1034300058,
+        1034300058,
+        1034300058
+      ],
+      "wgsl_output_bits": [
+        1034300058,
+        1034300058,
+        1034300058
+      ],
+      "sentinels": [
+        0,
+        4294967295,
+        305419896
+      ],
+      "all_inputs_and_guards_unchanged": true,
+      "all_outputs_exact": true,
+      "native_validation_errors": 0,
+      "native_log_bytes": 0,
+      "wgsl_log_bytes": 0
+    },
+    {
+      "identity": {
+        "id": "zero",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "histogram_sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+        "uniform_sha256": "2c914494b58146fe09c39e538e47a2e449ee694d06c99f4d660902163fb0fc2c",
+        "native_output_sha256": "7c5c1d9451c2174c1707bf7f3174b294f8d4f28139a3b51c73cc210d920bb412",
+        "native_output_bits": 998244352
+      },
+      "definition": {
+        "id": "zero",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "occupied_bins": [],
+        "params_u32_u32_f32_f32": [
+          1280,
+          720,
+          -8.0,
+          13.0
+        ],
+        "uniform_tail_zero_bytes": 16,
+        "purpose": "All histogram counts are zero"
+      },
+      "native_output_bits": [
+        998244352,
+        998244352,
+        998244352
+      ],
+      "wgsl_output_bits": [
+        998244352,
+        998244352,
+        998244352
+      ],
+      "sentinels": [
+        0,
+        4294967295,
+        305419896
+      ],
+      "all_inputs_and_guards_unchanged": true,
+      "all_outputs_exact": true,
+      "native_validation_errors": 0,
+      "native_log_bytes": 0,
+      "wgsl_log_bytes": 0
+    },
+    {
+      "identity": {
+        "id": "bin-0",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "histogram_sha256": "da1ecdce65149e6f935e70c3d30696b094708c89b8a751ee114663bc0f3f723a",
+        "uniform_sha256": "2c914494b58146fe09c39e538e47a2e449ee694d06c99f4d660902163fb0fc2c",
+        "native_output_sha256": "7c5c1d9451c2174c1707bf7f3174b294f8d4f28139a3b51c73cc210d920bb412",
+        "native_output_bits": 998244352
+      },
+      "definition": {
+        "id": "bin-0",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "occupied_bins": [
+          [
+            0,
+            921600
+          ]
+        ],
+        "params_u32_u32_f32_f32": [
+          1280,
+          720,
+          -8.0,
+          13.0
+        ],
+        "uniform_tail_zero_bytes": 16,
+        "purpose": "Only first bin occupied"
+      },
+      "native_output_bits": [
+        998244352,
+        998244352,
+        998244352
+      ],
+      "wgsl_output_bits": [
+        998244352,
+        998244352,
+        998244352
+      ],
+      "sentinels": [
+        0,
+        4294967295,
+        305419896
+      ],
+      "all_inputs_and_guards_unchanged": true,
+      "all_outputs_exact": true,
+      "native_validation_errors": 0,
+      "native_log_bytes": 0,
+      "wgsl_log_bytes": 0
+    },
+    {
+      "identity": {
+        "id": "bin-255",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "histogram_sha256": "e6848ff3dbd0789224b9eab997b8a0dbd821537871e2c81472a3f4ec38efc708",
+        "uniform_sha256": "2c914494b58146fe09c39e538e47a2e449ee694d06c99f4d660902163fb0fc2c",
+        "native_output_sha256": "825ac1bb838d399fb1ba55a6247e2c8c7a0c3ec25898f3c94dbfb51fa6e73951",
+        "native_output_bits": 1107296256
+      },
+      "definition": {
+        "id": "bin-255",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "occupied_bins": [
+          [
+            255,
+            921600
+          ]
+        ],
+        "params_u32_u32_f32_f32": [
+          1280,
+          720,
+          -8.0,
+          13.0
+        ],
+        "uniform_tail_zero_bytes": 16,
+        "purpose": "Only last bin occupied"
+      },
+      "native_output_bits": [
+        1107296256,
+        1107296256,
+        1107296256
+      ],
+      "wgsl_output_bits": [
+        1107296256,
+        1107296256,
+        1107296256
+      ],
+      "sentinels": [
+        0,
+        4294967295,
+        305419896
+      ],
+      "all_inputs_and_guards_unchanged": true,
+      "all_outputs_exact": true,
+      "native_validation_errors": 0,
+      "native_log_bytes": 0,
+      "wgsl_log_bytes": 0
+    },
+    {
+      "identity": {
+        "id": "product-wrap",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "histogram_sha256": "722f1dac24e4586c0bda3436b028eabbea7b51399dbc42876bae3f458ceda05f",
+        "uniform_sha256": "d3d3794bf655346ac3c8446b88f3c506bb7161edf3a2ef5c0e7f51ea1c96324f",
+        "native_output_sha256": "e72c1613d1afea8cf825cf06988e60a6a98ebd662f009d73c7ee24196ee9e113",
+        "native_output_bits": 1073696283
+      },
+      "definition": {
+        "id": "product-wrap",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "occupied_bins": [
+          [
+            255,
+            16843010
+          ]
+        ],
+        "params_u32_u32_f32_f32": [
+          1,
+          1,
+          0.0,
+          1.0
+        ],
+        "uniform_tail_zero_bytes": 16,
+        "purpose": "Weighted product wraps to 254"
+      },
+      "native_output_bits": [
+        1073696283,
+        1073696283,
+        1073696283
+      ],
+      "wgsl_output_bits": [
+        1073696283,
+        1073696283,
+        1073696283
+      ],
+      "sentinels": [
+        0,
+        4294967295,
+        305419896
+      ],
+      "all_inputs_and_guards_unchanged": true,
+      "all_outputs_exact": true,
+      "native_validation_errors": 0,
+      "native_log_bytes": 0,
+      "wgsl_log_bytes": 0
+    },
+    {
+      "identity": {
+        "id": "sum-wrap",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "histogram_sha256": "25fd43948f05e180c2d58e850873764e2a08b0d21ace78357fd6a985184ea18d",
+        "uniform_sha256": "d3d3794bf655346ac3c8446b88f3c506bb7161edf3a2ef5c0e7f51ea1c96324f",
+        "native_output_sha256": "e5c7e9aa1f4a3c85b6495b42c097f41faf1349246f0139ec498925f8fd17df62",
+        "native_output_bits": 1065376049
+      },
+      "definition": {
+        "id": "sum-wrap",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "occupied_bins": [
+          [
+            1,
+            4294967295
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "params_u32_u32_f32_f32": [
+          1,
+          1,
+          0.0,
+          1.0
+        ],
+        "uniform_tail_zero_bytes": 16,
+        "purpose": "Weighted sum wraps to one"
+      },
+      "native_output_bits": [
+        1065376049,
+        1065376049,
+        1065376049
+      ],
+      "wgsl_output_bits": [
+        1065376049,
+        1065376049,
+        1065376049
+      ],
+      "sentinels": [
+        0,
+        4294967295,
+        305419896
+      ],
+      "all_inputs_and_guards_unchanged": true,
+      "all_outputs_exact": true,
+      "native_validation_errors": 0,
+      "native_log_bytes": 0,
+      "wgsl_log_bytes": 0
+    },
+    {
+      "identity": {
+        "id": "zero-width",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "histogram_sha256": "2d2740c68ed7a398756e63388498ab9d807f25ccf0b1e0ec8f229000cdc32141",
+        "uniform_sha256": "e38741bc3fa279db080ea5de3c8756be6cb18cb1185351ad6bf53943c0fdb081",
+        "native_output_sha256": "d88c86f15bbea365d658ad95a81d45367c465f7af6f7264fb077f01747ddc77d",
+        "native_output_bits": 1073741824
+      },
+      "definition": {
+        "id": "zero-width",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "occupied_bins": [
+          [
+            255,
+            1
+          ]
+        ],
+        "params_u32_u32_f32_f32": [
+          0,
+          720,
+          0.0,
+          1.0
+        ],
+        "uniform_tail_zero_bytes": 16,
+        "purpose": "Zero width clamps denominator to one"
+      },
+      "native_output_bits": [
+        1073741824,
+        1073741824,
+        1073741824
+      ],
+      "wgsl_output_bits": [
+        1073741824,
+        1073741824,
+        1073741824
+      ],
+      "sentinels": [
+        0,
+        4294967295,
+        305419896
+      ],
+      "all_inputs_and_guards_unchanged": true,
+      "all_outputs_exact": true,
+      "native_validation_errors": 0,
+      "native_log_bytes": 0,
+      "wgsl_log_bytes": 0
+    },
+    {
+      "identity": {
+        "id": "zero-height",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "histogram_sha256": "2d2740c68ed7a398756e63388498ab9d807f25ccf0b1e0ec8f229000cdc32141",
+        "uniform_sha256": "65e1a14b001afceb49f0740039df48714e6cccf540bda02377d3867ffccff87d",
+        "native_output_sha256": "d88c86f15bbea365d658ad95a81d45367c465f7af6f7264fb077f01747ddc77d",
+        "native_output_bits": 1073741824
+      },
+      "definition": {
+        "id": "zero-height",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "occupied_bins": [
+          [
+            255,
+            1
+          ]
+        ],
+        "params_u32_u32_f32_f32": [
+          1280,
+          0,
+          0.0,
+          1.0
+        ],
+        "uniform_tail_zero_bytes": 16,
+        "purpose": "Zero height clamps denominator to one"
+      },
+      "native_output_bits": [
+        1073741824,
+        1073741824,
+        1073741824
+      ],
+      "wgsl_output_bits": [
+        1073741824,
+        1073741824,
+        1073741824
+      ],
+      "sentinels": [
+        0,
+        4294967295,
+        305419896
+      ],
+      "all_inputs_and_guards_unchanged": true,
+      "all_outputs_exact": true,
+      "native_validation_errors": 0,
+      "native_log_bytes": 0,
+      "wgsl_log_bytes": 0
+    },
+    {
+      "identity": {
+        "id": "dimensions-wrap",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "histogram_sha256": "08375c88901744b06c70f74c85900221c1b3708559aed515c9a341799a3060f3",
+        "uniform_sha256": "847560b9b0041716c7905a842fccec7cf6c32bffe04097ab742f3f884ef97e9d",
+        "native_output_sha256": "d88c86f15bbea365d658ad95a81d45367c465f7af6f7264fb077f01747ddc77d",
+        "native_output_bits": 1073741824
+      },
+      "definition": {
+        "id": "dimensions-wrap",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "occupied_bins": [
+          [
+            255,
+            65536
+          ]
+        ],
+        "params_u32_u32_f32_f32": [
+          65536,
+          65537,
+          0.0,
+          1.0
+        ],
+        "uniform_tail_zero_bytes": 16,
+        "purpose": "Dimension product wraps to 65536"
+      },
+      "native_output_bits": [
+        1073741824,
+        1073741824,
+        1073741824
+      ],
+      "wgsl_output_bits": [
+        1073741824,
+        1073741824,
+        1073741824
+      ],
+      "sentinels": [
+        0,
+        4294967295,
+        305419896
+      ],
+      "all_inputs_and_guards_unchanged": true,
+      "all_outputs_exact": true,
+      "native_validation_errors": 0,
+      "native_log_bytes": 0,
+      "wgsl_log_bytes": 0
+    },
+    {
+      "identity": {
+        "id": "dimensions-wrap-zero",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "histogram_sha256": "2d2740c68ed7a398756e63388498ab9d807f25ccf0b1e0ec8f229000cdc32141",
+        "uniform_sha256": "899436472db349a624fb2cee212bc54ec1c37d97922bc5869f83ab29b8e9f1cc",
+        "native_output_sha256": "d88c86f15bbea365d658ad95a81d45367c465f7af6f7264fb077f01747ddc77d",
+        "native_output_bits": 1073741824
+      },
+      "definition": {
+        "id": "dimensions-wrap-zero",
+        "origin": "synthetic arithmetic case",
+        "source_capture_sha256": null,
+        "occupied_bins": [
+          [
+            255,
+            1
+          ]
+        ],
+        "params_u32_u32_f32_f32": [
+          65536,
+          65536,
+          0.0,
+          1.0
+        ],
+        "uniform_tail_zero_bytes": 16,
+        "purpose": "Dimension product wraps to zero then clamps"
+      },
+      "native_output_bits": [
+        1073741824,
+        1073741824,
+        1073741824
+      ],
+      "wgsl_output_bits": [
+        1073741824,
+        1073741824,
+        1073741824
+      ],
+      "sentinels": [
+        0,
+        4294967295,
+        305419896
+      ],
+      "all_inputs_and_guards_unchanged": true,
+      "all_outputs_exact": true,
+      "native_validation_errors": 0,
+      "native_log_bytes": 0,
+      "wgsl_log_bytes": 0
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "date_utc": "2026-11-24",
+  "location": "remote PC A",
+  "repository_base": "3b7cc99ad67eb0bb9955b191e7c85d5b90395f67",
+  "rust_version": "1.93.1",
+  "wgpu_version": "26.0.1",
+  "binary_sha256": "8cb2e5271256b02458d2201bb185f2539f9802c48130544ca65130bd47a5b4a0",
+  "main_rs_sha256": "7fb5f304d7cd7c70d0876d68a6885f7301a31082253cd12f4c61580f60e486a3",
+  "cargo_lock_sha256": "20227f90bf357079ab9df4ebfb5ad3dd25b2be2e2a82c30497fff4c2d3be1a4c",
+  "native_reference": {
+    "method": "Two fresh RenderDoc replay controllers; input snapshots immediately before E6905 and output immediately after E6905",
+    "reference_is_live_game_readback": false,
+    "input_bytes": 1056,
+    "histogram_bytes": 1024,
+    "uniform_bytes": 32,
+    "output_bytes": 4,
+    "pass_uniform_dimensions": [1280, 720],
+    "uniform_dimensions_are_presentation_resolution_proof": false,
+    "both_sessions_same_input_hashes": true,
+    "both_sessions_same_output_bits": true,
+    "inputs_unchanged_during_native_dispatch": true,
+    "native_dispatch_changed_output": true,
+    "native_output_sha256": "60f5c1a960699456db2ebfda0da480133311202723e4e1eb5f9d9114ef9e3f3c",
+    "scalar_output_bits": 1041600570,
+    "scalar_exact": false,
+    "positive_f32_step_difference": 1,
+    "original_profile_gpu_ms_single_observation": 0.003072
+  },
+  "execution_contract_complete": false,
+  "different_captured_input_checked": false,
+  "synthetic_arithmetic_cases_checked": false,
+  "full_frame_correctness_proven": false,
+  "gpu_worker_restored": true,
+  "adapter": "NVIDIA GeForce RTX 3070",
+  "backend": "Vulkan",
+  "driver": "615.71.09",
+  "game_speedup_proven": false,
+  "histogram_sha256": "a2082ed95408d0c467eba82096d76ba615fab623a289191c0966972250ff24cc",
+  "native_output_bits": 1041600569,
+  "native_shader_sha256": "5b112e9919dff8911604f606a636b324e197cde9797196efd604b5f9ca48f9c7",
+  "original_shader_executed": false,
+  "profile": "cs2-build-26879581-capture-1-event-6905",
+  "reimplementation": true,
+  "runs": [
+    {
+      "exact": true,
+      "guards_unchanged": true,
+      "inputs_unchanged": true,
+      "output_bits": 1041600569,
+      "sentinel": 0
+    },
+    {
+      "exact": true,
+      "guards_unchanged": true,
+      "inputs_unchanged": true,
+      "output_bits": 1041600569,
+      "sentinel": 4294967295
+    },
+    {
+      "exact": true,
+      "guards_unchanged": true,
+      "inputs_unchanged": true,
+      "output_bits": 1041600569,
+      "sentinel": 305419896
+    }
+  ],
+  "source_capture_sha256": "1ed0d19496074b82c2e04819f43529d08a1926e28a115deb7325038d1781cb23",
+  "uniform_sha256": "6f2bbde6bc0e70da2c40539179055dd8a4a38eb58e3cb987356c5ee1ca1a9a5e",
+  "wgsl_sha256": "a5e66faefef644f61e4272c65ea6fcc250a82085f5881e375029ae44243d0e7c"
+}

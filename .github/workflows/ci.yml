@@ -25,6 +25,14 @@ jobs:
         run: cargo +1.93.1 test --all-targets --locked
       - name: Build release
         run: cargo +1.93.1 build --release --locked
+      - name: Check GPU probe format
+        run: cargo +1.93.1 fmt --manifest-path tools/reduction-probe/Cargo.toml --check
+      - name: Check GPU probe code
+        run: cargo +1.93.1 clippy --manifest-path tools/reduction-probe/Cargo.toml --all-targets --locked -- -D warnings
+      - name: Test GPU probe input checks
+        run: cargo +1.93.1 test --manifest-path tools/reduction-probe/Cargo.toml --all-targets --locked
+      - name: Build GPU probe
+        run: cargo +1.93.1 build --manifest-path tools/reduction-probe/Cargo.toml --release --locked
       - name: Check progress
         run: python scripts/check_progress.py
       - name: Test progress checks

@@ -1,0 +1,171 @@
+{
+  "date_utc": "2026-11-24",
+  "location": "remote PC A",
+  "repository_base": "adf23f62215ee9e5961fa5c0692d8ff411a1d96c",
+  "capture_sha256": "1ed0d19496074b82c2e04819f43529d08a1926e28a115deb7325038d1781cb23",
+  "renderdoc_source_commit": "b0e1370309f7d7bf986a73830446ca39d9b8c1fd",
+  "map_script_sha256": "e3ad5dc35ab8f7db7c8412b1055b5f1e45a4896abce4f1678fdb8814829804ff",
+  "private_map_sha256": "a3157a1eef96137d2868319e07b8ded4e51adbc4c995e40b3adf5384983c7a63",
+  "method": "RenderDoc CaptureFile.GetStructuredData; no GPU replay controller",
+  "gpu_workload_stopped_for_mapping": false,
+  "runtime_modified": false,
+  "resources": [
+    {
+      "role": "uniform_pool",
+      "capture_resource": "ResourceId::34752",
+      "buffer_bytes": 2097152,
+      "memory_requirement_bytes": 2097152,
+      "capture_memory": "ResourceId::34758",
+      "memory_offset": 0,
+      "create_chunk": 10490,
+      "bind_chunk": 10492
+    },
+    {
+      "role": "histogram",
+      "capture_resource": "ResourceId::7815",
+      "buffer_bytes": 1024,
+      "memory_requirement_bytes": 1024,
+      "capture_memory": "ResourceId::6181",
+      "memory_offset": 32111872,
+      "create_chunk": 699,
+      "bind_chunk": 700
+    },
+    {
+      "role": "reduction_output",
+      "capture_resource": "ResourceId::7820",
+      "buffer_bytes": 4,
+      "memory_requirement_bytes": 256,
+      "capture_memory": "ResourceId::6181",
+      "memory_offset": 32112896,
+      "create_chunk": 702,
+      "bind_chunk": 703
+    },
+    {
+      "role": "copy_destination",
+      "capture_resource": "ResourceId::90750",
+      "buffer_bytes": 4,
+      "memory_requirement_bytes": 16,
+      "capture_memory": "ResourceId::90759",
+      "memory_offset": 0,
+      "create_chunk": 26720,
+      "bind_chunk": 26729
+    }
+  ],
+  "recorded_resource_uses": [
+    {
+      "role": "histogram",
+      "uses": [
+        {
+          "event": 6894,
+          "usage": "ResourceUsage.Barrier"
+        },
+        {
+          "event": 6895,
+          "usage": "ResourceUsage.Barrier"
+        },
+        {
+          "event": 6896,
+          "usage": "ResourceUsage.Clear"
+        },
+        {
+          "event": 6897,
+          "usage": "ResourceUsage.Barrier"
+        },
+        {
+          "event": 6897,
+          "usage": "ResourceUsage.Barrier"
+        },
+        {
+          "event": 6901,
+          "usage": "ResourceUsage.CS_RWResource"
+        },
+        {
+          "event": 6902,
+          "usage": "ResourceUsage.Barrier"
+        },
+        {
+          "event": 6905,
+          "usage": "ResourceUsage.CS_RWResource"
+        }
+      ]
+    },
+    {
+      "role": "reduction_output",
+      "uses": [
+        {
+          "event": 6902,
+          "usage": "ResourceUsage.Barrier"
+        },
+        {
+          "event": 6905,
+          "usage": "ResourceUsage.CS_RWResource"
+        },
+        {
+          "event": 6906,
+          "usage": "ResourceUsage.Barrier"
+        },
+        {
+          "event": 6907,
+          "usage": "ResourceUsage.Barrier"
+        },
+        {
+          "event": 6908,
+          "usage": "ResourceUsage.CopySrc"
+        }
+      ]
+    }
+  ],
+  "output_copies": [
+    {
+      "chunk": 36433,
+      "command_buffer": "ResourceId::18896",
+      "source": "ResourceId::7820",
+      "destination": "ResourceId::90750",
+      "source_offset": 0,
+      "destination_offset": 0,
+      "bytes": 4
+    }
+  ],
+  "observed_binding_variants": [
+    "vkBindBufferMemory",
+    "vkBindImageMemory"
+  ],
+  "static_overlap_candidates": 0,
+  "overlap_scan_scope": "Recorded memory-requirement extent for both target and other resource; all recorded buffer/image binding extents in this capture; no lifetime or device-address proof",
+  "lifetimes_and_device_address_access_proven": false,
+  "recorded_target_memory_calls": 0,
+  "absence_of_cpu_access_proven": false,
+  "command_buffer": {
+    "capture_resource": "ResourceId::18896",
+    "level": "primary",
+    "one_time_submit": true,
+    "begin_chunk": 35516,
+    "end_chunk": 43841,
+    "submit_chunk": 44188,
+    "queue": "ResourceId::154",
+    "zero_based_position_in_batch": 9,
+    "command_buffers_in_batch": 10,
+    "wait_semaphores": 1,
+    "wait_stage_masks": [
+      1024
+    ],
+    "signal_semaphores": 1,
+    "fence": "ResourceId::7167"
+  },
+  "cost_observations": {
+    "selected_event": 6905,
+    "selected_gpu_us_single_profile": 3.072,
+    "highest_profiled_event": 4520,
+    "highest_gpu_us_single_profile": 52.224,
+    "half_histogram_bytes": 512,
+    "link_bits_per_second": 1000000000,
+    "payload_serialization_lower_bound_us": 4.096,
+    "critical_path_proven": false,
+    "repeated_gpu_timing_distribution": false
+  },
+  "dependency_contract_complete": false,
+  "live_identity_verified": false,
+  "safe_replacement_verified": false,
+  "m5_complete": false,
+  "game_speedup_proven": false
+}

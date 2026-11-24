@@ -1,0 +1,421 @@
+{
+  "date_utc": "2026-11-24",
+  "location": "remote PC A",
+  "cpu": "Intel(R) Core(TM) i7-10700F CPU @ 2.90GHz",
+  "gpu": "NVIDIA GeForce RTX 3070",
+  "driver": "615.71.09",
+  "os": "Ubuntu 26.04.1",
+  "app_id": "730",
+  "build_id": "26879581",
+  "measurement": "Instrumented present-call intervals selected from guarded SourceTV playback notifications",
+  "capture_evidence": "../cs2-capture-2026-11-24.json",
+  "demo_map": "de_dust2",
+  "demo_mode": "SourceTV spectator",
+  "active_demo_identity_checked_before_and_after_each_run": true,
+  "demo_header": {
+    "patch_version": 14201,
+    "build_num": 10955,
+    "server_start_tick": 18156
+  },
+  "runtime_platform": "sniper_platform_3.0.20261021.266025",
+  "mangohud_source_archive_sha256": "a2e5c72b373645823b48624dd03d1852a250acbeeec305b11c661612f6e0dc93",
+  "mangohud_source_tag": "v0.6.9-1",
+  "mangohud_library_sha256": "43e568a7de8a92310cdf3fa8fb07c1f5cbbada3009dc794bd1fc4ce62fc4518d",
+  "mangohud_build_sdk": "registry.gitlab.steamos.cloud/steamrt/sniper/sdk@sha256:bb30053d3cd19d35c76ae69b2790dbaa1430448006f8240cb6d7e723f2d1940e",
+  "mangohud_build_options": [
+    "release",
+    "xnvctrl disabled",
+    "dbus disabled",
+    "wayland disabled",
+    "tests disabled",
+    "include_doc false",
+    "nvml disabled"
+  ],
+  "mangohud_config": "no_display,log_interval=0,permit_upload=0,output_folder=/dev/shm/dg-cs2-logs,control=dg_cs2,log_duration=90",
+  "clock": "CLOCK_MONOTONIC_RAW",
+  "samples_elapsed_unit": "nanoseconds",
+  "samples_interval_unit": "milliseconds",
+  "video_config_sha256": "3d1f886805396e4500c69ba0634f5f7aa0a3cc86734c83d6e5961e27c2e56ae3",
+  "video_settings": {
+    "Version": "17",
+    "VendorID": "4318",
+    "DeviceID": "9348",
+    "setting.cpu_level": "3",
+    "setting.gpu_mem_level": "3",
+    "setting.gpu_level": "3",
+    "setting.knowndevice": "0",
+    "setting.defaultres": "1280",
+    "setting.defaultresheight": "720",
+    "setting.refreshrate_numerator": "0",
+    "setting.refreshrate_denominator": "0",
+    "setting.fullscreen": "0",
+    "setting.coop_fullscreen": "1",
+    "setting.nowindowborder": "1",
+    "setting.mat_vsync": "0",
+    "setting.fullscreen_min_on_focus_loss": "1",
+    "setting.high_dpi": "0",
+    "Autoconfig": "2",
+    "setting.shaderquality": "1",
+    "setting.r_texturefilteringquality": "3",
+    "setting.msaa_samples": "4",
+    "setting.r_csgo_cmaa_enable": "0",
+    "setting.videocfg_shadow_quality": "2",
+    "setting.videocfg_dynamic_shadows": "1",
+    "setting.videocfg_texture_detail": "2",
+    "setting.videocfg_particle_detail": "2",
+    "setting.videocfg_ao_detail": "2",
+    "setting.videocfg_parallax_detail": "1",
+    "setting.videocfg_hdr_detail": "-1",
+    "setting.videocfg_fsr_detail": "0"
+  },
+  "actual_window_size": [
+    1920,
+    1080
+  ],
+  "capture_present_size": [
+    1920,
+    1080
+  ],
+  "internal_render_scale_verified": false,
+  "workload_state": {
+    "worker_active_before": true,
+    "worker_inactive_before_each_run_and_after_series": true,
+    "restore_timer_fired_during_series": false,
+    "worker_restored_active": true
+  },
+  "input_latency_measured": false,
+  "display_latency_measured": false,
+  "game_speedup_proven": false,
+  "collector_sha256": "e7835ad4ef4ad15930912bb23c9d2216f3191078719356a17239973819d6f899",
+  "collector_lf_sha256": "e7835ad4ef4ad15930912bb23c9d2216f3191078719356a17239973819d6f899",
+  "runs": [
+    {
+      "demo_ticks": [
+        1280,
+        2560
+      ],
+      "server_ticks": [
+        19436,
+        20716
+      ],
+      "helper_sha256": "e7835ad4ef4ad15930912bb23c9d2216f3191078719356a17239973819d6f899",
+      "raw_csv_sha256": "db30f2f31e78424159f589a07df1e3f9a8ffae15d6eafd885db5671bb0517e4b",
+      "raw_csv_stable_seconds": 1,
+      "logger_stop_acknowledged": true,
+      "maximum_epoch_uncertainty_ms": 50,
+      "required_selected_duration_seconds": [
+        19.3,
+        19.6
+      ],
+      "camera_before": [
+        182.0,
+        2439.0,
+        -39.984375,
+        0.0,
+        -4.0
+      ],
+      "camera_after": [
+        182.0,
+        2439.0,
+        -39.984375,
+        0.0,
+        -4.0
+      ],
+      "frame_cap": 0,
+      "raw_rows": 2955,
+      "kept_rows": 2814,
+      "conditions_before": {
+        "video_config_sha256": "3d1f886805396e4500c69ba0634f5f7aa0a3cc86734c83d6e5961e27c2e56ae3",
+        "window_size": [
+          1920,
+          1080
+        ],
+        "demo_sha256": "136bc8d43f55d2186f68acfe5a1fcfda0e81aff5cb9e55e2d3e663d0a7be6123",
+        "mangohud_loaded": true,
+        "renderdoc_loaded": false,
+        "insecure_argument": true,
+        "executable_sha256": "a8a299b270218ffc4cfb83eaa6c2037df5837e3bbd93f541801babf33ff5ef13"
+      },
+      "conditions_after": {
+        "video_config_sha256": "3d1f886805396e4500c69ba0634f5f7aa0a3cc86734c83d6e5961e27c2e56ae3",
+        "window_size": [
+          1920,
+          1080
+        ],
+        "demo_sha256": "136bc8d43f55d2186f68acfe5a1fcfda0e81aff5cb9e55e2d3e663d0a7be6123",
+        "mangohud_loaded": true,
+        "renderdoc_loaded": false,
+        "insecure_argument": true,
+        "executable_sha256": "a8a299b270218ffc4cfb83eaa6c2037df5837e3bbd93f541801babf33ff5ef13"
+      },
+      "selection_lower_elapsed_ns": 573978809,
+      "selection_upper_elapsed_ns": 20076436650,
+      "guard_ms_each_end": 250,
+      "logger_epoch_uncertainty_ms": 6.317579,
+      "resume_to_pause_observed_seconds": 20.010803091,
+      "resume_ack_to_pause_observed_seconds": 20.00877542,
+      "requested_demo_timescale": 1,
+      "playback_speed_check": "1280 ticks at 64 Hz completed within 20 +/- 0.5 seconds",
+      "boundary_limit": "The end guard assumes pause notification delay is below 250 ms; this is not a proven bound",
+      "measured_seconds": 19.487110510999997,
+      "sum_after_first_seconds": 19.48611698,
+      "median_present_interval_ms": 6.940049999999999,
+      "p95_present_interval_ms": 7.88663,
+      "throughput_fps": 144.3518267324512,
+      "input_latency_measured": false,
+      "display_latency_measured": false,
+      "present_intervals_are_gpu_execution_time": false,
+      "measurement": "Instrumented present-call intervals selected using guarded real-time SourceTV playback notifications",
+      "id": "warmup",
+      "warmup": true,
+      "samples_file": "warmup.csv",
+      "samples_sha256": "cc807c5e9cf639115887990688e4aa515c55bc56c433e52267274775a5da02c4"
+    },
+    {
+      "demo_ticks": [
+        1280,
+        2560
+      ],
+      "server_ticks": [
+        19436,
+        20716
+      ],
+      "helper_sha256": "e7835ad4ef4ad15930912bb23c9d2216f3191078719356a17239973819d6f899",
+      "raw_csv_sha256": "cca80d1d0f893d384834883ee71d4ee894ad99e22d2e120652c45af302d1967f",
+      "raw_csv_stable_seconds": 1,
+      "logger_stop_acknowledged": true,
+      "maximum_epoch_uncertainty_ms": 50,
+      "required_selected_duration_seconds": [
+        19.3,
+        19.6
+      ],
+      "camera_before": [
+        182.0,
+        2439.0,
+        -39.984375,
+        0.0,
+        -4.0
+      ],
+      "camera_after": [
+        182.0,
+        2439.0,
+        -39.984375,
+        0.0,
+        -4.0
+      ],
+      "frame_cap": 0,
+      "raw_rows": 3563,
+      "kept_rows": 3387,
+      "conditions_before": {
+        "video_config_sha256": "3d1f886805396e4500c69ba0634f5f7aa0a3cc86734c83d6e5961e27c2e56ae3",
+        "window_size": [
+          1920,
+          1080
+        ],
+        "demo_sha256": "136bc8d43f55d2186f68acfe5a1fcfda0e81aff5cb9e55e2d3e663d0a7be6123",
+        "mangohud_loaded": true,
+        "renderdoc_loaded": false,
+        "insecure_argument": true,
+        "executable_sha256": "a8a299b270218ffc4cfb83eaa6c2037df5837e3bbd93f541801babf33ff5ef13"
+      },
+      "conditions_after": {
+        "video_config_sha256": "3d1f886805396e4500c69ba0634f5f7aa0a3cc86734c83d6e5961e27c2e56ae3",
+        "window_size": [
+          1920,
+          1080
+        ],
+        "demo_sha256": "136bc8d43f55d2186f68acfe5a1fcfda0e81aff5cb9e55e2d3e663d0a7be6123",
+        "mangohud_loaded": true,
+        "renderdoc_loaded": false,
+        "insecure_argument": true,
+        "executable_sha256": "a8a299b270218ffc4cfb83eaa6c2037df5837e3bbd93f541801babf33ff5ef13"
+      },
+      "selection_lower_elapsed_ns": 569272423,
+      "selection_upper_elapsed_ns": 20073105433,
+      "guard_ms_each_end": 250,
+      "logger_epoch_uncertainty_ms": 4.606153,
+      "resume_to_pause_observed_seconds": 20.011197856,
+      "resume_ack_to_pause_observed_seconds": 20.008439163,
+      "requested_demo_timescale": 1,
+      "playback_speed_check": "1280 ticks at 64 Hz completed within 20 +/- 0.5 seconds",
+      "boundary_limit": "The end guard assumes pause notification delay is below 250 ms; this is not a proven bound",
+      "measured_seconds": 19.493422053,
+      "sum_after_first_seconds": 19.492203,
+      "median_present_interval_ms": 5.75097,
+      "p95_present_interval_ms": 6.92451,
+      "throughput_fps": 173.69961984067857,
+      "input_latency_measured": false,
+      "display_latency_measured": false,
+      "present_intervals_are_gpu_execution_time": false,
+      "measurement": "Instrumented present-call intervals selected using guarded real-time SourceTV playback notifications",
+      "id": "01",
+      "warmup": false,
+      "samples_file": "run-01.csv",
+      "samples_sha256": "fb079330b927220f01991128c16a1a72bc6ba49dab72c1bc0c232808fc5aff7c"
+    },
+    {
+      "demo_ticks": [
+        1280,
+        2560
+      ],
+      "server_ticks": [
+        19436,
+        20716
+      ],
+      "helper_sha256": "e7835ad4ef4ad15930912bb23c9d2216f3191078719356a17239973819d6f899",
+      "raw_csv_sha256": "49b34ede7ce11f1c021ceb544d50ad470a64f915a2cbcc7c73f28c6ba00a94ea",
+      "raw_csv_stable_seconds": 1,
+      "logger_stop_acknowledged": true,
+      "maximum_epoch_uncertainty_ms": 50,
+      "required_selected_duration_seconds": [
+        19.3,
+        19.6
+      ],
+      "camera_before": [
+        182.0,
+        2439.0,
+        -39.984375,
+        0.0,
+        -4.0
+      ],
+      "camera_after": [
+        182.0,
+        2439.0,
+        -39.984375,
+        0.0,
+        -4.0
+      ],
+      "frame_cap": 0,
+      "raw_rows": 3520,
+      "kept_rows": 3348,
+      "conditions_before": {
+        "video_config_sha256": "3d1f886805396e4500c69ba0634f5f7aa0a3cc86734c83d6e5961e27c2e56ae3",
+        "window_size": [
+          1920,
+          1080
+        ],
+        "demo_sha256": "136bc8d43f55d2186f68acfe5a1fcfda0e81aff5cb9e55e2d3e663d0a7be6123",
+        "mangohud_loaded": true,
+        "renderdoc_loaded": false,
+        "insecure_argument": true,
+        "executable_sha256": "a8a299b270218ffc4cfb83eaa6c2037df5837e3bbd93f541801babf33ff5ef13"
+      },
+      "conditions_after": {
+        "video_config_sha256": "3d1f886805396e4500c69ba0634f5f7aa0a3cc86734c83d6e5961e27c2e56ae3",
+        "window_size": [
+          1920,
+          1080
+        ],
+        "demo_sha256": "136bc8d43f55d2186f68acfe5a1fcfda0e81aff5cb9e55e2d3e663d0a7be6123",
+        "mangohud_loaded": true,
+        "renderdoc_loaded": false,
+        "insecure_argument": true,
+        "executable_sha256": "a8a299b270218ffc4cfb83eaa6c2037df5837e3bbd93f541801babf33ff5ef13"
+      },
+      "selection_lower_elapsed_ns": 571602074,
+      "selection_upper_elapsed_ns": 20079349937,
+      "guard_ms_each_end": 250,
+      "logger_epoch_uncertainty_ms": 4.691416,
+      "resume_to_pause_observed_seconds": 20.016474251,
+      "resume_ack_to_pause_observed_seconds": 20.012439279,
+      "requested_demo_timescale": 1,
+      "playback_speed_check": "1280 ticks at 64 Hz completed within 20 +/- 0.5 seconds",
+      "boundary_limit": "The end guard assumes pause notification delay is below 250 ms; this is not a proven bound",
+      "measured_seconds": 19.500944282,
+      "sum_after_first_seconds": 19.499737829999997,
+      "median_present_interval_ms": 5.8239350000000005,
+      "p95_present_interval_ms": 6.97475,
+      "throughput_fps": 171.63271437524125,
+      "input_latency_measured": false,
+      "display_latency_measured": false,
+      "present_intervals_are_gpu_execution_time": false,
+      "measurement": "Instrumented present-call intervals selected using guarded real-time SourceTV playback notifications",
+      "id": "02",
+      "warmup": false,
+      "samples_file": "run-02.csv",
+      "samples_sha256": "15ff35099f0c4da3584d6e70ecb50d111a0a4fff203016cbfdf461e27c1b3181"
+    },
+    {
+      "demo_ticks": [
+        1280,
+        2560
+      ],
+      "server_ticks": [
+        19436,
+        20716
+      ],
+      "helper_sha256": "e7835ad4ef4ad15930912bb23c9d2216f3191078719356a17239973819d6f899",
+      "raw_csv_sha256": "29f4cbe8c434faf7d666f7f1f44b5e893fbd8e4301310ca2dbcc8a3cd3fd758e",
+      "raw_csv_stable_seconds": 1,
+      "logger_stop_acknowledged": true,
+      "maximum_epoch_uncertainty_ms": 50,
+      "required_selected_duration_seconds": [
+        19.3,
+        19.6
+      ],
+      "camera_before": [
+        182.0,
+        2439.0,
+        -39.984375,
+        0.0,
+        -4.0
+      ],
+      "camera_after": [
+        182.0,
+        2439.0,
+        -39.984375,
+        0.0,
+        -4.0
+      ],
+      "frame_cap": 0,
+      "raw_rows": 3508,
+      "kept_rows": 3333,
+      "conditions_before": {
+        "video_config_sha256": "3d1f886805396e4500c69ba0634f5f7aa0a3cc86734c83d6e5961e27c2e56ae3",
+        "window_size": [
+          1920,
+          1080
+        ],
+        "demo_sha256": "136bc8d43f55d2186f68acfe5a1fcfda0e81aff5cb9e55e2d3e663d0a7be6123",
+        "mangohud_loaded": true,
+        "renderdoc_loaded": false,
+        "insecure_argument": true,
+        "executable_sha256": "a8a299b270218ffc4cfb83eaa6c2037df5837e3bbd93f541801babf33ff5ef13"
+      },
+      "conditions_after": {
+        "video_config_sha256": "3d1f886805396e4500c69ba0634f5f7aa0a3cc86734c83d6e5961e27c2e56ae3",
+        "window_size": [
+          1920,
+          1080
+        ],
+        "demo_sha256": "136bc8d43f55d2186f68acfe5a1fcfda0e81aff5cb9e55e2d3e663d0a7be6123",
+        "mangohud_loaded": true,
+        "renderdoc_loaded": false,
+        "insecure_argument": true,
+        "executable_sha256": "a8a299b270218ffc4cfb83eaa6c2037df5837e3bbd93f541801babf33ff5ef13"
+      },
+      "selection_lower_elapsed_ns": 569345996,
+      "selection_upper_elapsed_ns": 20077071114,
+      "guard_ms_each_end": 250,
+      "logger_epoch_uncertainty_ms": 4.332767,
+      "resume_to_pause_observed_seconds": 20.014450293,
+      "resume_ack_to_pause_observed_seconds": 20.012057885,
+      "requested_demo_timescale": 1,
+      "playback_speed_check": "1280 ticks at 64 Hz completed within 20 +/- 0.5 seconds",
+      "boundary_limit": "The end guard assumes pause notification delay is below 250 ms; this is not a proven bound",
+      "measured_seconds": 19.493911663,
+      "sum_after_first_seconds": 19.4927159,
+      "median_present_interval_ms": 5.8432,
+      "p95_present_interval_ms": 7.00282,
+      "throughput_fps": 170.92516153770364,
+      "input_latency_measured": false,
+      "display_latency_measured": false,
+      "present_intervals_are_gpu_execution_time": false,
+      "measurement": "Instrumented present-call intervals selected using guarded real-time SourceTV playback notifications",
+      "id": "03",
+      "warmup": false,
+      "samples_file": "run-03.csv",
+      "samples_sha256": "7afaf30405988cf5f96722fa0e9bca7cbff172cd073b5ada20514757cc13a65b"
+    }
+  ]
+}

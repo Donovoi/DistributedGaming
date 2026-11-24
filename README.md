@@ -122,9 +122,9 @@ An unknown dependency blocks a patch. A plausible explanation or valid schema is
 
 ## Latest change
 
-- Added a [Rust Vulkan observer](tools/vulkan-observer/README.md) for the fixed shader, pipeline lifetimes, direct dispatch, and queue submission. It forwards calls and records bounded evidence. It does not replace work or prove completion.
-- Checked two captured inputs in five modes, including missing logs and forced write failure. All 30 native shader executions matched their baselines. Inputs and guards stayed unchanged. Validation reported zero errors. Fifteen Rust tests cover forwarding, lifetime reuse, incomplete observations, and failures.
-- Recorded the [checks and limits](docs/validation/vulkan-observer-2026-11-24.md) and [two detractor rounds](docs/reviews/0012.md). CI also checks the C loader ABI and symbol ownership.
-- Goal progress stays at 50%. M5 remains pending. Live game compatibility, descriptor contents, and resource ownership remain unverified. No game data or milestone weights changed.
+- Profiled the fixed offline CS2 scene on a remote PC. A CPU-only capture keeps scene and physics code on the candidate list. Module samples do not prove critical-path time or a safe remote job.
+- Rejected two GPU traces for timing claims. One has inconsistent ranges. The other exceeded the profiler's timestamp limit. A failed retry also overwrote older starting snapshots; the evidence record states which data remains usable.
+- Recorded the [results, artifact hashes, and limits](docs/validation/cs2-profiling-2026-11-25.md) and [two detractor rounds](docs/reviews/0013.md). Each completed run restored the remote GPU workload. No tests ran on the user's desktop.
+- Goal progress stays at 50%. M5 remains pending. No game work was patched or distributed, and no speed benefit was proved. The [Rust Vulkan observer](tools/vulkan-observer/README.md) remains available for later boundary checks.
 
-Next: track descriptor templates and resource lifetimes, then check the observer in an isolated offline game run. Find the output consumer's ownership and completion rules before enabling replacement. The [boundary map](docs/validation/cs2-boundary-map-2026-11-24.md) still shows no credible benefit margin for this tiny pass under the current per-job transfer design. Continue looking for work that can cover total transfer costs.
+Next: inspect one scene or physics worker routine. Measure its inputs, outputs, shared writes, duration, and result deadline before choosing a patch. Count total transfer costs. The [boundary map](docs/validation/cs2-boundary-map-2026-11-24.md) still rules out the tiny reduction as a credible performance target under the current per-job transfer design.

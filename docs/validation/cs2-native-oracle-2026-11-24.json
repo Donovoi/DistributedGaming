@@ -1,0 +1,209 @@
+{
+  "date_utc": "2026-11-24",
+  "location": "remote PC A",
+  "repository_base": "b076985acac8a859e426496ae7fcf940abfbbb14",
+  "main_cpp_sha256": "23de89a112dc4cdfd7491c7123dad2a33cee8592f171513559898ed6c54f44d1",
+  "binary_sha256": "4ad85a66dce75a0dc581362959586f146efec4012f6744cb183de43444939f47",
+  "input_test_sha256": "92c847b9294cb6a3e62465b7dee5abf3f6f0fcf439b61cdb7bfb7f6a2e39c486",
+  "compiler": "g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+  "build_command": "g++ -std=c++17 -O2 -Wall -Wextra -Werror -Wno-missing-field-initializers tools/native-oracle/main.cpp -lvulkan -lcrypto -o native-oracle",
+  "spirv_validation_target": "vulkan1.2",
+  "spirv_validation_passed": true,
+  "packages": [
+    "libssl-dev 3.5.5-1ubuntu3.7",
+    "libvulkan-dev 1.4.341.0-1",
+    "spirv-tools 2026.1-1",
+    "vulkan-validationlayers 1.4.341.0-1"
+  ],
+  "driver": "615.71.09",
+  "core_validation_required": true,
+  "synchronization_validation_required": true,
+  "gpu_assisted_validation_enabled": false,
+  "negative_input_checks_passed": 7,
+  "game_alias_and_synchronization_contract_complete": false,
+  "wgsl_second_fixture_checked": false,
+  "arithmetic_edges_checked": false,
+  "full_frame_correctness_proven": false,
+  "game_speedup_proven": false,
+  "gpu_worker_restored": true,
+  "cases": [
+    {
+      "shader_sha256": "5b112e9919dff8911604f606a636b324e197cde9797196efd604b5f9ca48f9c7",
+      "histogram_sha256": "a2082ed95408d0c467eba82096d76ba615fab623a289191c0966972250ff24cc",
+      "uniform_sha256": "6f2bbde6bc0e70da2c40539179055dd8a4a38eb58e3cb987356c5ee1ca1a9a5e",
+      "adapter": "NVIDIA GeForce RTX 3070",
+      "driver_version_raw": 2580660800,
+      "api_version_raw": 4211039,
+      "validation_errors": 0,
+      "synchronization_validation": true,
+      "output_view_offset": 16,
+      "original_shader_executed": true,
+      "runs": [
+        {
+          "sentinel": 0,
+          "output_bits": 1041600569,
+          "inputs_unchanged": true,
+          "guards_unchanged": true
+        },
+        {
+          "sentinel": 4294967295,
+          "output_bits": 1041600569,
+          "inputs_unchanged": true,
+          "guards_unchanged": true
+        },
+        {
+          "sentinel": 305419896,
+          "output_bits": 1041600569,
+          "inputs_unchanged": true,
+          "guards_unchanged": true
+        }
+      ],
+      "case": "capture-1-fixed-input",
+      "capture_sha256": "1ed0d19496074b82c2e04819f43529d08a1926e28a115deb7325038d1781cb23",
+      "capture_bytes": 2642997002,
+      "captured_pipeline": {
+        "event": 6905,
+        "groups": [
+          1,
+          1,
+          1
+        ],
+        "threads": [
+          256,
+          1,
+          1
+        ],
+        "entry_point": "MainCs",
+        "push_constant_offset": 0,
+        "push_constant_bytes": 0,
+        "specialization_ids": [],
+        "specialization_data_hex": "",
+        "required_subgroup_size": 0,
+        "descriptors": [
+          {
+            "binding": 159,
+            "offset": 0,
+            "bytes": 1024,
+            "format": "R32_UINT",
+            "type": "DescriptorType.ReadWriteTypedBuffer"
+          },
+          {
+            "binding": 2,
+            "offset": 967104,
+            "bytes": 32,
+            "format": "Undefined",
+            "type": "DescriptorType.ConstantBuffer"
+          },
+          {
+            "binding": 160,
+            "offset": 0,
+            "bytes": 4,
+            "format": "R32_FLOAT",
+            "type": "DescriptorType.ReadWriteTypedBuffer"
+          }
+        ]
+      },
+      "sampled_reference_output_bits": 1041600569,
+      "isolated_output_matches_sampled_reference": true,
+      "histogram_samples": 921600,
+      "nonzero_bins": 207,
+      "weighted_sum_u32": 94448137,
+      "uniform_u32_u32_f32_f32": [
+        1280,
+        720,
+        -8.0,
+        13.0
+      ],
+      "validation_log_bytes": 0
+    },
+    {
+      "shader_sha256": "5b112e9919dff8911604f606a636b324e197cde9797196efd604b5f9ca48f9c7",
+      "histogram_sha256": "8479df67b6317aecc63a54bb73de1cfa6e5fe7dd03d3f8df8ea7469be8b9e8f3",
+      "uniform_sha256": "6f2bbde6bc0e70da2c40539179055dd8a4a38eb58e3cb987356c5ee1ca1a9a5e",
+      "adapter": "NVIDIA GeForce RTX 3070",
+      "driver_version_raw": 2580660800,
+      "api_version_raw": 4211039,
+      "validation_errors": 0,
+      "synchronization_validation": true,
+      "output_view_offset": 16,
+      "original_shader_executed": true,
+      "runs": [
+        {
+          "sentinel": 0,
+          "output_bits": 1034300058,
+          "inputs_unchanged": true,
+          "guards_unchanged": true
+        },
+        {
+          "sentinel": 4294967295,
+          "output_bits": 1034300058,
+          "inputs_unchanged": true,
+          "guards_unchanged": true
+        },
+        {
+          "sentinel": 305419896,
+          "output_bits": 1034300058,
+          "inputs_unchanged": true,
+          "guards_unchanged": true
+        }
+      ],
+      "case": "capture-2-fixed-input",
+      "capture_sha256": "b394c7afcd2564c880f038120605a25427475c192daf8d80dd6f559e1ed7e346",
+      "capture_bytes": 2649417921,
+      "captured_pipeline": {
+        "event": 4356,
+        "groups": [
+          1,
+          1,
+          1
+        ],
+        "threads": [
+          256,
+          1,
+          1
+        ],
+        "entry_point": "MainCs",
+        "push_constant_offset": 0,
+        "push_constant_bytes": 0,
+        "specialization_ids": [],
+        "specialization_data_hex": "",
+        "required_subgroup_size": 0,
+        "descriptors": [
+          {
+            "binding": 159,
+            "offset": 0,
+            "bytes": 1024,
+            "format": "R32_UINT",
+            "type": "DescriptorType.ReadWriteTypedBuffer"
+          },
+          {
+            "binding": 2,
+            "offset": 1108544,
+            "bytes": 32,
+            "format": "Undefined",
+            "type": "DescriptorType.ConstantBuffer"
+          },
+          {
+            "binding": 160,
+            "offset": 0,
+            "bytes": 4,
+            "format": "R32_FLOAT",
+            "type": "DescriptorType.ReadWriteTypedBuffer"
+          }
+        ]
+      },
+      "sampled_reference_output_bits": 1034300058,
+      "isolated_output_matches_sampled_reference": true,
+      "histogram_samples": 921600,
+      "nonzero_bins": 168,
+      "weighted_sum_u32": 79116069,
+      "uniform_u32_u32_f32_f32": [
+        1280,
+        720,
+        -8.0,
+        13.0
+      ],
+      "validation_log_bytes": 0
+    }
+  ]
+}

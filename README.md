@@ -13,13 +13,13 @@ The first test used five physical PCs over direct Tailscale paths on a wired net
 Run one supported game across at least two physical PCs. Use the same settings and image quality. Beat the fastest participating PC running alone. Report frame time and input delay separately.
 
 <!-- progress:start -->
-Goal progress: **10%** (10/100 accepted milestone points).
+Goal progress: **20%** (20/100 accepted milestone points).
 
 This is a checklist score. It is not an estimate of time, effort, or game speedup.
 
 | Step | Acceptance area | Points | State |
 | --- | --- | ---: | --- |
-| M1 | Rust harness and failure tests | 10 | pending |
+| M1 | Rust harness and failure tests | 10 | complete |
 | M2 | Transport on physical PCs | 10 | complete |
 | M3 | Selected game baseline | 10 | pending |
 | M4 | Capture and replay game work | 20 | pending |
@@ -113,5 +113,6 @@ An unknown dependency blocks a patch. A plausible explanation or valid schema is
 - Added failure tests, Linux/Windows CI, and the mandatory README progress check.
 - Ran two cases across five physical PCs. Both passed pixel checks and both were slower than local work.
 - Completed two detractor rounds. Fixed the progress reweighting gap and added a corrupt-pixel test.
+- Passed 16 Rust tests and 6 Python tests on Linux and Windows CI. Closed M1 and M2. Goal progress is 20% by the fixed checklist.
 
 Next: install and pin the Half-Life 2 build on one test PC. Record an offline demo. Capture one frame and measure each pass. Select a pass only when its measured compute saving can exceed its transfer and merge cost. Keep M3 pending until that evidence exists.

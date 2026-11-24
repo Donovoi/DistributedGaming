@@ -1,0 +1,101 @@
+{
+  "date_utc": "2026-11-24",
+  "location": "remote PC A",
+  "repository_base": "7acd250ff1008f0722b8cd705efe09a75cc5ced7",
+  "gpu": "NVIDIA GeForce RTX 3070",
+  "driver": "615.71.09",
+  "rust": "1.93.1",
+  "layer_sha256": "7a8118a22469052e64607bc3fb7c8c79749481291932deaa13305c55d5b2db4c",
+  "source_sha256": {
+    "Cargo.toml": "8347c277e020511041fb9ec0a0f26cdedaddc05e634cbda6fb2be83a9b213bcb",
+    "Cargo.lock": "bb129743b446f204fcbab9e3a242724a8cf73a9b447dfb53a84806a0f8b27097",
+    "VkLayer_dg_observer.json": "1565c113281f2aeefdaa5eab1f5387182f4055218dbaeb08b029a224953d8946",
+    "check_abi.c": "93e055d4cd70b9bfa2c2f9479260615ded2df0117433ff54c362745ca882f34f",
+    "check_loader.c": "c290b0fc35cba0c7a6b5acc0b80a91e78e5c2c8386a3533ef325569d040ac00c",
+    "check_oracle.py": "f0b148338748d87a7527c6a7b7f40be0978c0d949c9f69f1356a0346a5421230",
+    "src/abi.rs": "6b75a795749466f59eecdeb69df01c50c558e24bac4d957e920ec7621a6fc483",
+    "src/forwarding_tests.rs": "465ab76310e8852f9adeafda563f49b5bdcc6ba4c1514e7b5dc2e4f63d3f5b1a",
+    "src/journal.rs": "a925a1788698c4bcebd8c5e104cdc3c03e62b3e6a8c3740393276c84e208764f",
+    "src/lib.rs": "c2e53a5b3b91952c67410248f1cafad629fca5e4b4ad49d151c9e85980a349af",
+    "src/track.rs": "e681d37b5afc4296e25415ddeb09cb944957c85ac1e7643bac3879558d11107e"
+  },
+  "checks": {
+    "fmt": true,
+    "clippy_warnings_denied": true,
+    "rust_tests_passed": 15,
+    "release_build": true,
+    "c_abi": true,
+    "loader_negotiation_and_symbols": true
+  },
+  "cases": [
+    {
+      "case": "capture-1",
+      "modes_passed": [
+        "baseline",
+        "observer",
+        "missing-log",
+        "existing-log",
+        "write-failure"
+      ],
+      "dispatches_per_mode": 3,
+      "output_bits": [
+        1041600569,
+        1041600569,
+        1041600569
+      ],
+      "validation_errors": 0,
+      "observer_tail": {
+        "dropped_records": 0,
+        "event": "instance_lifetime_end",
+        "execution_proven": false,
+        "extension_function_queries": 1,
+        "log_io_failed": false,
+        "observation_disabled": false,
+        "observation_panicked": false,
+        "open_instances": 0,
+        "recorded_target_dispatches": 3,
+        "resource_contract_complete": false,
+        "submitted_target_dispatches": 3,
+        "unsupported_observations": 0
+      }
+    },
+    {
+      "case": "capture-2",
+      "modes_passed": [
+        "baseline",
+        "observer",
+        "missing-log",
+        "existing-log",
+        "write-failure"
+      ],
+      "dispatches_per_mode": 3,
+      "output_bits": [
+        1034300058,
+        1034300058,
+        1034300058
+      ],
+      "validation_errors": 0,
+      "observer_tail": {
+        "dropped_records": 0,
+        "event": "instance_lifetime_end",
+        "execution_proven": false,
+        "extension_function_queries": 1,
+        "log_io_failed": false,
+        "observation_disabled": false,
+        "observation_panicked": false,
+        "open_instances": 0,
+        "recorded_target_dispatches": 3,
+        "resource_contract_complete": false,
+        "submitted_target_dispatches": 3,
+        "unsupported_observations": 0
+      }
+    }
+  ],
+  "native_shader_executions": 30,
+  "native_oracle_sha256": "4ad85a66dce75a0dc581362959586f146efec4012f6744cb183de43444939f47",
+  "gpu_service_active_before": true,
+  "gpu_service_restored": true,
+  "live_game_checked": false,
+  "resource_contract_complete": false,
+  "game_speedup_proven": false
+}

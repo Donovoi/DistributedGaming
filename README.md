@@ -122,10 +122,9 @@ An unknown dependency blocks a patch. A plausible explanation or valid schema is
 
 ## Latest change
 
-- Matched the unchanged captured shader and unchanged WGSL reconstruction on two captured inputs and nine arithmetic cases. All 33 output comparisons were exact. Input and guard checks passed.
-- Added a compiled list of complete input/reference hash tuples, six CPU tests, and a generator for the nine public synthetic fixtures. The generator copies saved reference bits; it does not run the original shader.
-- Recorded the [suite and limits](docs/validation/cs2-replay-suite-2026-11-24.md) and [detractor review](docs/reviews/0010.md). Required CI checks must pass before merge.
-- Completed M4 for this isolated pass on the recorded GPU and driver. Goal progress is 50%. The game's original alias and synchronization checks, full-frame correctness, and other hardware remain open.
-- No game work is distributed and no speedup is proved.
+- Traced the selected pass through recorded memory ranges, its four-byte output copy, and its queue submission. The eventual consumer is still unknown; CPU consumption has not been established.
+- Compared one sampled GPU time with the payload transfer lower bound. The current per-job LAN design has no credible benefit margin for this tiny pass. This is static analysis, not a new benchmark.
+- Recorded the [boundary map and limits](docs/validation/cs2-boundary-map-2026-11-24.md) and [detractor review](docs/reviews/0011.md). Required CI checks must pass before merge.
+- Goal progress stays at 50%. M5 remains pending. No runtime code, game data, or milestone weights changed.
 
-Next: design and verify a resource-safe two-PC pass path. Check game integration and failure handling before measuring benefit. Continue looking for work large enough to cover network costs.
+Next: observe live resource identities and find the output consumer's ownership and completion rules. Establish a correct one-PC replacement before adding network work. Continue looking for a pass that can cover total transfer costs.

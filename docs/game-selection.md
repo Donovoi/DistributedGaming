@@ -6,7 +6,7 @@ The user signed in to the official Steam client on a remote PC. This record stor
 
 ## Decision
 
-Check Counter-Strike 2 next. Its official Linux requirements include Vulkan. Installation is in progress. The actual binary and capture path remain unverified. Use only a local scene with `-insecure`. Verify that mode before instrumentation. Do not enter matchmaking during these tests. See [Valve's requirements](https://store.steampowered.com/app/730/CounterStrike_2/).
+Use Counter-Strike 2 for the current tests. Build 26879581 has an ELF64 x86-64 executable. A local SourceTV demo was captured through Vulkan on a remote RTX 3070. Replay shows world geometry, but repeated output did not match exactly. See the [capture evidence](validation/cs2-capture-2026-11-24.md). Use only a local scene with `-insecure`. Verify that mode before instrumentation. Do not enter matchmaking during these tests. See [Valve's requirements](https://store.steampowered.com/app/730/CounterStrike_2/).
 
 The first choice was Half-Life 2. Direct inspection found ELF32 x86 in its installed launcher, engine, and Vulkan wrapper. Tomb Raider's installed Linux executable is also ELF32 x86. Linux RenderDoc supports x86-64. Reject these builds for this capture route. This is not a finding that distributed work is impossible in either game. See the [build evidence](validation/game-builds-2026-11-24.md) and [RenderDoc platform support](https://github.com/baldurk/renderdoc/blob/v1.47/docs/CONTRIBUTING/Compiling.md).
 
@@ -14,13 +14,11 @@ Keep Baldur's Gate 3 as a later candidate. Its native Linux release targets Stea
 
 ## Pending checks
 
-- Install the selected game on the coordinator through the user's Steam account.
-- Record build ID, executable hash, graphics backend, resolution, and quality settings.
-- Confirm demo recording and playback commands on the installed build. Record and replay a fixed local demo on that exact build. Pin the map, camera, playback mode, and demo hash.
-- Measure the single-PC result without RenderDoc before any patch. Keep frame time separate from input delay.
-- Capture a separate frame with actual world geometry. A menu or loading screen does not pass this check. Map the frame's resource dependencies.
+- Complete a repeatable single-PC benchmark without RenderDoc. Pin settings and actual output size before and after the measured runs. Record the loaded measurement tools.
+- Keep the SourceTV build, map, demo hash, camera, mode, tick interval, and playback speed fixed. A spectator result is not a player input test.
+- Quantify and explain the replay mismatch. Verify a selected pass and map all its resource dependencies.
 
-Half-Life 2 and Tomb Raider are installed. Neither was run or captured. Counter-Strike 2 is not yet accepted as the test game. No game baseline, capture, or patch is complete. M3 remains pending.
+Half-Life 2 and Tomb Raider are installed. Neither was run or captured. Counter-Strike 2 has a real frame capture, but no accepted baseline or verified patch. M3 and M4 remain pending.
 
 ## Hardware constraint
 

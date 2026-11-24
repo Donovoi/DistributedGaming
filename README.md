@@ -31,9 +31,17 @@ This is a checklist score. It is not an estimate of time, effort, or game speedu
 
 [progress.json](progress.json) contains the fixed acceptance checks. A milestone receives its points only when the checks pass and evidence is recorded. Every PR must update this README. The percentage may stay the same. CI checks the README change, score, evidence paths, and fixed plan.
 
+## Work rules
+
+Make small, complete commits. Include the README and other documentation needed for each change. Push promptly. Merge task-owned PRs as soon as both detractor rounds and the required checks pass for the current head and relevant base. Recheck after either changes. Standing permission to merge is recorded in [AGENTS.md](AGENTS.md). Required checks and branch rules still apply.
+
+Keep the user's PC available. Run all checks, builds, installs, tests, benchmarks, and game work on remote PCs or in VMs. This includes documentation checks and both the coordinator and worker. Prefer remote PCs or GitHub-hosted CI VMs. A local VM needs CPU, memory, and I/O limits that keep the host usable. WSL alone is not enough. Local source reading, light edits, and Git operations are allowed.
+
+Record where each check ran, which commit it tested, and the result. Keep private addresses out of public records. Earlier test records keep their original dates and locations.
+
 ## Build
 
-Use Rust 1.93 or later. CI uses Rust 1.93.1 on Linux and Windows. Python 3.10 or later runs the progress checks.
+Run these commands on a remote PC or in a VM that meets the work rules above. Use Rust 1.93 or later. CI uses Rust 1.93.1 on Linux and Windows. Python 3.10 or later runs the progress checks.
 
 ```sh
 cargo build --release --locked
@@ -46,9 +54,11 @@ python3 scripts/test_progress.py
 
 On Windows, use `python` and `target\release\dg.exe`.
 
-## Run a local transport test
+## Run a loopback transport test
 
-1. Open a terminal. Start a worker:
+Use one remote PC or a VM that meets the work rules above. Run both terminals there.
+
+1. Open a terminal on that test host. Start a worker:
 
    ```sh
    target/release/dg worker --listen 127.0.0.1:47000 --jobs 12
@@ -62,9 +72,11 @@ On Windows, use `python` and `target\release\dg.exe`.
 
 3. Check the JSON output. `verified_frames` must be 12. `network_scope` must be `loopback_only`. A failed benchmark returns a nonzero exit code. The worker logs a failed connection and continues until its connection limit. It stops after 12 connections in this example.
 
-This test uses one PC. It does not prove LAN scaling.
+This test uses one host. It does not prove LAN scaling.
 
 ## Run on several PCs
+
+Run the coordinator and all workers on remote test PCs. Keep the user's desktop free of test work.
 
 1. Copy the same release binary to each compatible PC. Check the SHA-256 hash on each PC.
 2. Start each worker on its private address:
@@ -108,11 +120,11 @@ An unknown dependency blocks a patch. A plausible explanation or valid schema is
 
 ## Latest change
 
-- Added the Rust worker, coordinator, fixed test scene, strict wire checks, and JSON reports.
-- Added local parallel baselines and exact full-frame comparisons.
-- Added failure tests, Linux/Windows CI, and the mandatory README progress check.
-- Ran two cases across five physical PCs. Both passed pixel checks and both were slower than local work.
-- Completed two detractor rounds. Fixed the progress reweighting gap and added a corrupt-pixel test.
-- Passed 16 Rust tests and 6 Python tests on Linux and Windows CI. Closed M1 and M2. Goal progress is 20% by the fixed checklist.
+- Recorded standing permission to push and merge small, checked changes promptly.
+- Required each commit to include its needed README and documentation changes.
+- Moved all future checks and test work to remote PCs or suitable VMs. This includes documentation checks and both harness roles.
+- Added test location and tested commit fields to the PR form. The existing CI runs on GitHub-hosted Linux and Windows VMs.
+- Recorded two detractor rounds in the [policy review](docs/reviews/0002.md). The PR must pass CI before merge.
+- Goal progress remains 20%. No new acceptance check closed. The five-PC harness results and limits remain in the [test record](docs/validation/2026-11-24.md).
 
 Next: install and pin the Half-Life 2 build on one test PC. Record an offline demo. Capture one frame and measure each pass. Select a pass only when its measured compute saving can exceed its transfer and merge cost. Keep M3 pending until that evidence exists.

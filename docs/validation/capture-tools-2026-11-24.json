@@ -1,0 +1,15 @@
+{
+  "test": "vkcube capture and replay; not a game",
+  "renderdoc_version": "1.47",
+  "api": "Vulkan",
+  "capture_vendor": "NVIDIA",
+  "replay_degraded": false,
+  "draw_count": 1,
+  "output_width": 500,
+  "output_height": 500,
+  "output_bytes": 1000000,
+  "output_sha256": "1c7b11997ee268ef3fbaac421d9510fb98e2a94679895e8357d3d876be5ddea8",
+  "capture_sha256": "2d80b7054e9fa197d9b24b04d85c2173565b95eb34049588eca74bcee562e6d8",
+  "repeat_replay_exact": true,
+  "game_test": false
+}

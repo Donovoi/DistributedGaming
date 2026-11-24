@@ -2,4 +2,7 @@
 /runs/
 /run-*.json
 *.ppm
+*.rdc
+*.rdczip
+*.dem
 __pycache__/

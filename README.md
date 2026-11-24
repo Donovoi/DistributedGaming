@@ -4,7 +4,7 @@ Use several PCs to share selected game work. Rust runs the harness. A game adapt
 
 ## Current state
 
-The Rust harness runs a fixed CPU ray-tracing test scene across TCP workers. It checks every output byte against a local full-frame render. It does not capture, patch, or run a game. It does not use the GPU yet.
+The Rust harness runs a fixed CPU ray-tracing test scene across TCP workers. It checks every output byte against a local full-frame render. It does not capture, patch, or run a game. The separate [capture environment](docs/capture-environment.md) now captures and replays a 64-bit Vulkan test cube on a remote NVIDIA GPU. This is a tool check, not a game test.
 
 The first test used five physical PCs over direct Tailscale paths on a wired network. Each active wired link reported 1 Gb/s. All 24 frames passed exact pixel checks. Distributed work was slower in both tests. See the [test record](docs/validation/2026-11-24.md).
 
@@ -110,7 +110,7 @@ The wire protocol has no built-in authentication or encryption. Use trusted peer
 
 Half-Life 2 is the first capture and replay target. Its demo system supports repeatable scenes. It was confirmed in the user's Steam library. No game files, account IDs, or full library lists are stored here.
 
-Baldur's Gate 3 is a later Vulkan candidate. Selection is not integration. No game has been downloaded to the test nodes, captured, patched, or benchmarked by this project. See the [game selection record](docs/game-selection.md).
+Baldur's Gate 3 is a later Vulkan candidate. Selection is not integration. Remote Steam sign-in is complete, but no game baseline, capture, or patch has passed yet. See the [game selection record](docs/game-selection.md).
 
 ## LLM-assisted reversing
 
@@ -120,11 +120,11 @@ An unknown dependency blocks a patch. A plausible explanation or valid schema is
 
 ## Latest change
 
-- Recorded standing permission to push and merge small, checked changes promptly.
-- Required each commit to include its needed README and documentation changes.
-- Moved all future checks and test work to remote PCs or suitable VMs. This includes documentation checks and both harness roles.
-- Added test location and tested commit fields to the PR form. The existing CI runs on GitHub-hosted Linux and Windows VMs.
-- Recorded two detractor rounds in the [policy review](docs/reviews/0002.md). The PR must pass CI before merge.
-- Goal progress remains 20%. No new acceptance check closed. The five-PC harness results and limits remain in the [test record](docs/validation/2026-11-24.md).
+- Added a remote 64-bit capture image with pinned Ubuntu and RenderDoc source identities.
+- Added an isolated NVIDIA display setup and a capture/replay smoke check.
+- Built and checked the tools on a remote RTX 3070. A Vulkan draw captured and replayed with equal bytes across two replays. See the [capture tool record](docs/validation/capture-tools-2026-11-24.md).
+- Kept game captures and demos out of Git. Game files and account data remain private.
+- Recorded the [detractor review](docs/reviews/0003.md). Required CI checks must pass before merge.
+- Goal progress remains 20%. The cube check closes no game milestone. Linux RenderDoc captures 64-bit programs; the actual game build and capture path still need verification.
 
-Next: install and pin the Half-Life 2 build on one test PC. Record an offline demo. Capture one frame and measure each pass. Select a pass only when its measured compute saving can exceed its transfer and merge cost. Keep M3 pending until that evidence exists.
+Next: finish installing and pinning the Half-Life 2 build, then check its binary type. Record an offline demo and a separate game-frame capture. Select a pass only when its measured compute saving can exceed its transfer and merge cost. Keep M3 pending until that evidence exists.

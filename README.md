@@ -122,10 +122,10 @@ An unknown dependency blocks a patch. A plausible explanation or valid schema is
 
 ## Latest change
 
-- Added a small Rust and WGSL probe for one captured CS2 histogram reduction. The same native reference was obtained from two fresh capture replays.
-- Matched all four output bytes in three GPU runs with different initial output values. Checked unchanged inputs and guard words. The scalar reconstruction failed by one floating-point step; that failure remains recorded.
-- Pinned the private case by file size and hash. Kept original shaders and game resources private. Added CPU input tests and CI build checks. The actual GPU check ran on a remote RTX 3070.
-- Recorded the [experiment](docs/validation/cs2-reduction-2026-11-24.md) and [detractor review](docs/reviews/0007.md). Required CI checks must pass before merge.
-- Goal progress stays at 30%. One matched case does not close M4. No game work is distributed and no speedup is proved.
+- Corrected the scope of the native reference snapshots. RenderDoc starts a replay prefix when an event is selected. Matching snapshots on either side of a pass do not prove input immutability within one execution.
+- Rejected one comparison from a second capture after its input snapshots differed. That attempt is not part of the fixed GPU fixture. The first fixture's hashes and exact GPU output match remain valid.
+- Kept the Rust probe's isolated input and guard checks separate from the capture replay checks. No runtime code or measured bytes changed.
+- Recorded the [correction and evidence](docs/validation/cs2-reduction-2026-11-24.md) and [detractor review](docs/reviews/0008.md). Required CI checks must pass before merge.
+- Goal progress stays at 30%. M4 remains pending. No game work is distributed and no speedup is proved.
 
-Next: check a different captured input, complete the pass execution contract, and test arithmetic edge cases. Keep the full-frame replay mismatch open. Look for work expensive enough to cover transfer and merge cost; this small reduction has no demonstrated LAN benefit.
+Next: run the original shader in isolation with fixed inputs. Complete the pass execution contract, check a different captured input, and test arithmetic edge cases. Keep the full-frame replay mismatch open. Look for work expensive enough to cover transfer and merge cost; this small reduction has no demonstrated LAN benefit.

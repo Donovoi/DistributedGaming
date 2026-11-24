@@ -1,4 +1,5 @@
 /target/
+/tools/reduction-probe/target/
 /runs/
 /run-*.json
 *.ppm

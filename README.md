@@ -8,6 +8,8 @@ The Rust harness runs a fixed CPU ray-tracing test scene across TCP workers. It 
 
 The first test used five physical PCs over direct Tailscale paths on a wired network. Each active wired link reported 1 Gb/s. All 24 frames passed exact pixel checks. Distributed work was slower in both tests. See the [test record](docs/validation/2026-11-24.md).
 
+A separate [Rust GPU probe](tools/reduction-probe/README.md) now matches one captured compute output with a WGSL reimplementation. It accepts only one private case. It does not patch the game or send work to another PC. M4 remains pending.
+
 ## Goal and progress
 
 Run one supported game across at least two physical PCs. Use the same settings and image quality. Beat the fastest participating PC running alone. Report frame time and input delay separately.
@@ -120,11 +122,10 @@ An unknown dependency blocks a patch. A plausible explanation or valid schema is
 
 ## Latest change
 
-- Completed one warmup and three measured CS2 spectator runs on a remote RTX 3070. Checked the pinned build, demo, saved settings, camera endpoints, actual window size, and loaded tools before and after every run.
-- Recorded median present-call intervals of 5.75 to 5.84 ms and p95 intervals of 6.92 to 7.00 ms. These are instrumented rendering-call intervals. Input and display delay were not measured. The 250 ms pause-notification guard is an assumption, not a proved bound.
-- Published numeric samples, the experiment collector, and a checker that recomputes selections and statistics. Raw console logs and game files stay private.
-- Linked the separate real-frame capture. Its replay mismatch remains open. No game work is distributed and no speedup is proved.
-- Recorded the [detractor review](docs/reviews/0006.md). Required CI checks must pass before merge.
-- Goal progress is 30%. M3 is complete. M4 still needs verified output from a selected pass.
+- Added a small Rust and WGSL probe for one captured CS2 histogram reduction. The same native reference was obtained from two fresh capture replays.
+- Matched all four output bytes in three GPU runs with different initial output values. Checked unchanged inputs and guard words. The scalar reconstruction failed by one floating-point step; that failure remains recorded.
+- Pinned the private case by file size and hash. Kept original shaders and game resources private. Added CPU input tests and CI build checks. The actual GPU check ran on a remote RTX 3070.
+- Recorded the [experiment](docs/validation/cs2-reduction-2026-11-24.md) and [detractor review](docs/reviews/0007.md). Required CI checks must pass before merge.
+- Goal progress stays at 30%. One matched case does not close M4. No game work is distributed and no speedup is proved.
 
-Next: explain the replay difference and map pass dependencies. Verify one pass against a fixed reference before splitting it. Select work only when its measured compute saving can exceed its transfer and merge cost.
+Next: check a different captured input, complete the pass execution contract, and test arithmetic edge cases. Keep the full-frame replay mismatch open. Look for work expensive enough to cover transfer and merge cost; this small reduction has no demonstrated LAN benefit.

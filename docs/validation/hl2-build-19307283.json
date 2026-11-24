@@ -1,0 +1,64 @@
+{
+  "app_id": 220,
+  "name": "Half-Life 2",
+  "build_id": "19307283",
+  "installed_depots": {
+    "233": {
+      "manifest": "1358845133936836982",
+      "size": "3220135556"
+    },
+    "234": {
+      "manifest": "488462887721122399",
+      "size": "3175"
+    },
+    "221": {
+      "manifest": "4622516436473900521",
+      "size": "5437140737"
+    },
+    "224": {
+      "manifest": "2413749032760673540",
+      "size": "336987213"
+    }
+  },
+  "binaries": [
+    {
+      "path": "hl2_linux",
+      "sha256": "3620292bc1aed03a31d176c57daa1bf2058f3825bbea1d27806db595f42dfb2d",
+      "bytes": 6988,
+      "elf_class": 1,
+      "machine": 3
+    },
+    {
+      "path": "bin/engine.so",
+      "sha256": "e3c5b0c567a0a4fae765a572b983d8aae5100acb68ae18322c32a67cbb1bdd7a",
+      "bytes": 11068151,
+      "elf_class": 1,
+      "machine": 3
+    },
+    {
+      "path": "bin/launcher.so",
+      "sha256": "a79e88d3be07b921844cba6834c14f73943dd73e9a5f86655da25e69c5e0f3a0",
+      "bytes": 351840,
+      "elf_class": 1,
+      "machine": 3
+    },
+    {
+      "path": "bin/libdxvk_d3d9.so",
+      "sha256": "4e85ee635c0cfe804d6e33ba3c2768efae2637c6d54120799c0bd591cd078945",
+      "bytes": 3489448,
+      "elf_class": 1,
+      "machine": 3
+    },
+    {
+      "path": "bin/shaderapivk.so",
+      "sha256": "4371a050ef740edf7fbdc05e827a09a98e8028d1f5dfcc39986a50a45f520f2c",
+      "bytes": 907592,
+      "elf_class": 1,
+      "machine": 3
+    }
+  ],
+  "native_renderdoc_path_supported": false,
+  "reason": "The inspected game and renderer binaries are ELF32 x86. Linux RenderDoc supports x86-64.",
+  "game_run": false,
+  "game_capture": false
+}

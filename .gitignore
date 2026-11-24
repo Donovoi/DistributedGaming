@@ -1,5 +1,6 @@
 /target/
 /tools/reduction-probe/target/
+/tools/vulkan-observer/target/
 /runs/
 /run-*.json
 *.ppm

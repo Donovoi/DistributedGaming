@@ -16,6 +16,22 @@ jobs:
         run: g++ -std=c++17 -O2 -Wall -Wextra -Werror -Wno-missing-field-initializers tools/native-oracle/main.cpp -lvulkan -lcrypto -o /tmp/native-oracle
       - name: Check rejected oracle inputs
         run: python3 tools/native-oracle/test_inputs.py /tmp/native-oracle
+      - name: Install observer Rust components
+        run: rustup toolchain install 1.93.1 --profile minimal --component rustfmt --component clippy
+      - name: Check observer format
+        run: cargo +1.93.1 fmt --manifest-path tools/vulkan-observer/Cargo.toml --check
+      - name: Check observer code
+        run: cargo +1.93.1 clippy --manifest-path tools/vulkan-observer/Cargo.toml --all-targets --locked -- -D warnings
+      - name: Test observer forwarding and lifetimes
+        run: cargo +1.93.1 test --manifest-path tools/vulkan-observer/Cargo.toml --all-targets --locked
+      - name: Build observer
+        run: cargo +1.93.1 build --manifest-path tools/vulkan-observer/Cargo.toml --release --locked
+      - name: Check observer ABI and loader symbols
+        run: |
+          cc -std=c11 -Wall -Wextra -Werror tools/vulkan-observer/check_abi.c -o /tmp/check-abi
+          /tmp/check-abi
+          cc -std=c11 -Wall -Wextra -Werror tools/vulkan-observer/check_loader.c -lvulkan -ldl -o /tmp/check-loader
+          /tmp/check-loader "$PWD/tools/vulkan-observer/target/release/libdg_vulkan_observer.so"
   rust:
     strategy:
       matrix:

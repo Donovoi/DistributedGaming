@@ -1,0 +1,13 @@
+{
+  "goal": "Run one supported game across at least two physical PCs, with equal settings and verified improvement over the fastest participating PC alone.",
+  "milestones": [
+    {"id": "M1", "title": "Rust harness and failure tests", "weight": 10, "status": "pending", "acceptance": "Exact tile checks, bounded messages, timeout tests, fair local baseline, CI and two detractor rounds pass.", "evidence": []},
+    {"id": "M2", "title": "Transport on physical PCs", "weight": 10, "status": "complete", "acceptance": "Run the same harness on at least two user PCs. Record topology, binary identity, exact pixel checks, timing and limits.", "evidence": ["docs/validation/2026-11-24.md", "docs/validation/run-small.redacted.json", "docs/validation/run-large.redacted.json"]},
+    {"id": "M3", "title": "Selected game baseline", "weight": 10, "status": "pending", "acceptance": "Confirm access to the game. Pin its build and settings. Record a repeatable local benchmark and capture.", "evidence": []},
+    {"id": "M4", "title": "Capture and replay game work", "weight": 20, "status": "pending", "acceptance": "Capture a real game's GPU work and resources. Replay a selected pass with verified output.", "evidence": []},
+    {"id": "M5", "title": "Split one game pass", "weight": 15, "status": "pending", "acceptance": "Execute one real game pass on two PCs. Track all resources and combine the result.", "evidence": []},
+    {"id": "M6", "title": "Game correctness and recovery", "weight": 15, "status": "pending", "acceptance": "Pass scene changes, motion, history, resource updates and worker failure tests at fixed quality.", "evidence": []},
+    {"id": "M7", "title": "Measured game benefit", "weight": 10, "status": "pending", "acceptance": "Beat the fastest participating PC at the same settings in a predeclared test. Report median, p95, input delay, quality and uncertainty.", "evidence": []},
+    {"id": "M8", "title": "Repeatable supported release", "weight": 10, "status": "pending", "acceptance": "A second operator repeats the game result from the instructions. Pin the supported hardware, game build and limits.", "evidence": []}
+  ]
+}

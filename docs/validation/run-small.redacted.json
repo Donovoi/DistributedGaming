@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "program_version": "0.1.0",
+  "scene_version": 1,
+  "workload": "fixed CPU ray tracer; no game or GPU execution",
+  "time_unix_seconds": 1795499723,
+  "coordinator_os": "linux",
+  "coordinator_arch": "x86_64",
+  "coordinator_logical_cpus": 32,
+  "build_debug_assertions": false,
+  "network_scope": "non_loopback_addresses; physical placement must be checked separately",
+  "physical_host_count_verified": false,
+  "game_speedup_proven": false,
+  "frame": {
+    "id": 0,
+    "width": 320,
+    "height": 180,
+    "samples": 4
+  },
+  "worker_addresses": [
+    "worker-1:47000",
+    "worker-2:47000",
+    "worker-3:47000",
+    "worker-4:47000"
+  ],
+  "warmup_frames": 2,
+  "measured_frames": 10,
+  "timeout_ms": 10000,
+  "local_parallel_parts": 5,
+  "remote_pixel_bytes_per_frame": 184320,
+  "verified_frames": 12,
+  "verification": "exact RGBA bytes against a full-frame local render; all frames including warmups",
+  "timing_definition": "wall time through image assembly; includes threads, per-job TCP connect, transfers and compute; excludes reference rendering, comparison and report writing; alternating mode order; CPU work is bounded but not preempted by socket deadlines",
+  "percentile_definition": "p95 uses nearest rank; median averages the two middle values for even counts",
+  "local_parallel": {
+    "median_ms": 4.680562,
+    "p95_ms": 4.884397000000001,
+    "samples_ms": [
+      4.47705,
+      4.698364,
+      4.706995,
+      4.80612,
+      3.09206,
+      4.884397000000001,
+      2.8501580000000004,
+      4.327635,
+      4.6627600000000005,
+      4.716341
+    ]
+  },
+  "distributed": {
+    "median_ms": 11.3866195,
+    "p95_ms": 15.109978,
+    "samples_ms": [
+      9.660666,
+      14.068053,
+      10.338685,
+      10.052893000000001,
+      15.109978,
+      12.640889000000001,
+      13.81716,
+      12.434554,
+      9.976113999999999,
+      10.108144
+    ]
+  },
+  "local_parallel_over_distributed_median": 0.41105808444727604
+}

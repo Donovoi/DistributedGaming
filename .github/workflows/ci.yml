@@ -1,0 +1,37 @@
+name: Checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  rust:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+      - name: Install Rust components
+        run: rustup toolchain install 1.93.1 --profile minimal --component rustfmt --component clippy
+      - name: Check format
+        run: cargo +1.93.1 fmt --check
+      - name: Check code
+        run: cargo +1.93.1 clippy --all-targets --locked -- -D warnings
+      - name: Run tests
+        run: cargo +1.93.1 test --all-targets --locked
+      - name: Build release
+        run: cargo +1.93.1 build --release --locked
+      - name: Check progress
+        run: python scripts/check_progress.py
+      - name: Test progress checks
+        run: python scripts/test_progress.py
+      - name: Require README change in each PR
+        if: github.event_name == 'pull_request'
+        env:
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+        shell: bash
+        run: python scripts/check_progress.py --base "$PR_BASE"

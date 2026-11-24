@@ -1,0 +1,691 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-25",
+  "execution_location": "remote PC A",
+  "repository_base_commit": "9b907de0bf5fa2a10a74d6e351e65c51e913ef39",
+  "private_helpers_are_versioned_by_repository_base": false,
+  "goal_progress_percent": 50,
+  "game_work_distributed": false,
+  "game_speedup_proven": false,
+  "profiler_version": "Nsight Systems 2025.5.2.266-255236693005v0",
+  "scene": "CS2 offline SourceTV; de_dust2; server ticks 19436 through 20716",
+  "input_delay_measured": false,
+  "display_delay_measured": false,
+  "frame_measurement": "Instrumented present-call intervals; not GPU execution time",
+  "runs": [
+    {
+      "run": "04",
+      "mode": "Vulkan batch plus CPU",
+      "guarded_present_intervals": 2787,
+      "median_present_interval_ms": 7.0141,
+      "p95_present_interval_ms": 8.35011,
+      "playback_seconds": 20.012921226,
+      "guard_ms_each_end": 250,
+      "pause_notification_bound_proven": false,
+      "logger_epoch_uncertainty_ms": 5.3597,
+      "executable_sha256": "a8a299b270218ffc4cfb83eaa6c2037df5837e3bbd93f541801babf33ff5ef13",
+      "demo_sha256": "136bc8d43f55d2186f68acfe5a1fcfda0e81aff5cb9e55e2d3e663d0a7be6123",
+      "video_config_sha256": "3d1f886805396e4500c69ba0634f5f7aa0a3cc86734c83d6e5961e27c2e56ae3",
+      "window_size": [
+        1920,
+        1080
+      ],
+      "conditions_equal_before_after": true,
+      "insecure_argument": true,
+      "renderdoc_loaded": false,
+      "normal_game_user_verified": true,
+      "manual_gpu_workload_restore_verified": true,
+      "restore_timer_fired": false,
+      "cpu_ip_samples_whole_trace": 107718,
+      "scheduling_records_whole_trace": 1025514,
+      "trace_duration_ns": 21406783893,
+      "artifact_sha256": {
+        "timeline.nsys-rep": "2fa5c3f4cb855ec50b41c71c415de68d09ac31f31c1071e5bd179cba3c3adec9",
+        "timeline.sqlite": "9710f2f83e81d81bced1edfc6bdb25645370f1162713c62369fef3c2d4319c7f",
+        "frames/summary.json": "34b019809521f9f81ba76b3ab3e79be6b11835cf4a521086d40e93a206e60c7b",
+        "frames/frames.csv": "0253a44de59e70fe23f12fac1b29dfc22a003699701f55e013ce39ade1460552",
+        "restore.json": "3a3e82edc671af2510f46d392475694e7cd04b6d2a50273e0b97676ed362c836"
+      },
+      "gpu_workload_records": {
+        "count": 5430,
+        "minimum_duration_ns": 1,
+        "maximum_duration_ns": 11218363119,
+        "one_nanosecond_records": 2362
+      },
+      "gpu_timing_accepted": false,
+      "gpu_rejection_reason": "Batch ranges include inconsistent multi-second spans and one-nanosecond tails."
+    },
+    {
+      "run": "05",
+      "mode": "Vulkan individual plus CPU",
+      "guarded_present_intervals": 2806,
+      "median_present_interval_ms": 6.915435,
+      "p95_present_interval_ms": 8.38396,
+      "playback_seconds": 20.010261392,
+      "guard_ms_each_end": 250,
+      "pause_notification_bound_proven": false,
+      "logger_epoch_uncertainty_ms": 7.292481,
+      "executable_sha256": "a8a299b270218ffc4cfb83eaa6c2037df5837e3bbd93f541801babf33ff5ef13",
+      "demo_sha256": "136bc8d43f55d2186f68acfe5a1fcfda0e81aff5cb9e55e2d3e663d0a7be6123",
+      "video_config_sha256": "3d1f886805396e4500c69ba0634f5f7aa0a3cc86734c83d6e5961e27c2e56ae3",
+      "window_size": [
+        1920,
+        1080
+      ],
+      "conditions_equal_before_after": true,
+      "insecure_argument": true,
+      "renderdoc_loaded": false,
+      "normal_game_user_verified": true,
+      "manual_gpu_workload_restore_verified": true,
+      "restore_timer_fired": false,
+      "cpu_ip_samples_whole_trace": 107728,
+      "scheduling_records_whole_trace": 1023102,
+      "trace_duration_ns": 21405859051,
+      "artifact_sha256": {
+        "timeline.nsys-rep": "f5c069143d9fa96d0e70e160d7114711d9f5356dfabc9cc258003fb624d4a96f",
+        "timeline.sqlite": "45ac79bef187b9339e03fdde575196575b48ed0dc3f7249e7dd2fc8786930ab9",
+        "frames/summary.json": "c80186fe6dbf81163a515311af3a331b118a32d3c42a1543b72c5f3cea7ffa63",
+        "frames/frames.csv": "3d2ee4002653fc038a7abc0766cf0655eaa5a8589bfa571c5f6150e7399835f9",
+        "restore.json": "3a3e82edc671af2510f46d392475694e7cd04b6d2a50273e0b97676ed362c836",
+        "maps-after-playback.txt": "36ac03ab45dcb8c5552ba1c731861244df68fd86c4a821b5993a59663eb864c3",
+        "playback-times.json": "36412aacecb30ee11e7fb37877a82955fad7437d5683c42ec80fd74bc9854114",
+        "game-module-identities.json": "19a81952b705523489f6e02824c025c673bd76495bb7542b75fef1c584cb2753",
+        "cpu-analysis.json": "bfe8261466c5adfc1a3650008b0153fb92c806b9da87e19c615fc9394f3a7d1f"
+      },
+      "gpu_workload_records": {
+        "count": 146538,
+        "minimum_duration_ns": 1,
+        "maximum_duration_ns": 1437027,
+        "one_nanosecond_records": 2085
+      },
+      "gpu_timing_accepted": false,
+      "gpu_rejection_reason": "Profiler reports that Vulkan GPU event timestamps exceeded its per-frame limit. Excess events were not captured.",
+      "cpu_guarded_window": {
+        "duration_seconds": 19.509886723,
+        "leaf_samples": 98200,
+        "kernel_samples": 143,
+        "unmapped_user_samples": 0,
+        "unresolved_symbols": 97797,
+        "mapping_basis": "after-only map; before snapshot overwritten by failed run06",
+        "mapping_limit": "Endpoint maps do not rule out transient unloads or address reuse during playback.",
+        "samples_in_mappings_changed_between_snapshots": null,
+        "module_leaf_samples": [
+          [
+            "libscenesystem.so",
+            12502
+          ],
+          [
+            "librendersystemvulkan.so",
+            11166
+          ],
+          [
+            "libvphysics2.so",
+            11119
+          ],
+          [
+            "libToolsInjection64.so",
+            10579
+          ],
+          [
+            "libnvidia-glcore.so.615.71.09",
+            9565
+          ],
+          [
+            "libc.so.6",
+            7903
+          ],
+          [
+            "libtier0.so",
+            7642
+          ],
+          [
+            "libclient.so",
+            6476
+          ],
+          [
+            "libsoundsystem.so",
+            5262
+          ],
+          [
+            "libmaterialsystem2.so",
+            5112
+          ],
+          [
+            "libpanorama.so",
+            3297
+          ],
+          [
+            "libparticles.so",
+            2489
+          ],
+          [
+            "libengine2.so",
+            1506
+          ],
+          [
+            "libv8.so",
+            622
+          ],
+          [
+            "libm.so.6",
+            592
+          ],
+          [
+            "libanimationsystem.so",
+            419
+          ],
+          [
+            "libToolsInjectionMemoryAllocator.so",
+            215
+          ],
+          [
+            "ld-linux-x86-64.so.2",
+            195
+          ],
+          [
+            "libnetworksystem.so",
+            165
+          ],
+          [
+            "[kernel]",
+            143
+          ],
+          [
+            "libserver.so",
+            128
+          ],
+          [
+            "libpango-1.0.so.0",
+            98
+          ],
+          [
+            "libpanorama_text_pango.so",
+            94
+          ],
+          [
+            "[vdso]",
+            86
+          ],
+          [
+            "[anonymous]",
+            79
+          ],
+          [
+            "libSDL3.so.0",
+            78
+          ],
+          [
+            "libharfbuzz.so.0.20704.0",
+            76
+          ],
+          [
+            "libglib-2.0.so.0.6600.8",
+            75
+          ],
+          [
+            "libMangoHud.so",
+            50
+          ],
+          [
+            "libresourcesystem.so",
+            47
+          ],
+          [
+            "steamclient.so",
+            43
+          ],
+          [
+            "libpangoft2-1.0.so.0",
+            33
+          ],
+          [
+            "libworldrenderer.so",
+            33
+          ],
+          [
+            "libmeshsystem.so",
+            32
+          ],
+          [
+            "libfreetype.so.6",
+            31
+          ],
+          [
+            "libsteamnetworkingsockets.so",
+            24
+          ],
+          [
+            "libsteamaudio.so",
+            24
+          ],
+          [
+            "libvideo.so",
+            23
+          ],
+          [
+            "libgobject-2.0.so.0.6600.8",
+            20
+          ],
+          [
+            "libpanoramauiclient.so",
+            19
+          ],
+          [
+            "libGLX_nvidia.so.615.71.09",
+            18
+          ],
+          [
+            "libvconcomm.so",
+            16
+          ],
+          [
+            "libsteam_api.so",
+            15
+          ],
+          [
+            "liblocalize.so",
+            14
+          ],
+          [
+            "libmatchmaking.so",
+            11
+          ],
+          [
+            "libv8_libbase.so",
+            10
+          ],
+          [
+            "libX11.so.6.4.0",
+            10
+          ],
+          [
+            "libv8system.so",
+            9
+          ],
+          [
+            "libinputsystem.so",
+            7
+          ],
+          [
+            "libxcb.so.1.1.0",
+            5
+          ],
+          [
+            "libphonon.so",
+            5
+          ],
+          [
+            "libvscript.so",
+            3
+          ],
+          [
+            "libhost.so",
+            3
+          ],
+          [
+            "libfontconfig.so.1",
+            3
+          ],
+          [
+            "libLinuxKeyboardInterceptorProxy.so",
+            3
+          ],
+          [
+            "libpulse_system.so",
+            2
+          ],
+          [
+            "libscenefilecache.so",
+            1
+          ],
+          [
+            "libuuid.so.1.3.0",
+            1
+          ],
+          [
+            "libfribidi.so.0.4.0",
+            1
+          ],
+          [
+            "libfilesystem_stdio.so",
+            1
+          ]
+        ],
+        "clock_read_width_ns": {
+          "logger_start_sent": 9254,
+          "first_log_observed": 4999,
+          "resume_sent": 8940,
+          "resume_acknowledged": 8717,
+          "pause_received": 12406
+        },
+        "raw_minus_monotonic_offset_change_ns": 374669,
+        "scope": "Instrumented CS2 CPU samples in a monotonic-clock guarded playback window. Not exact MangoHUD row alignment. No critical-path or speedup claim."
+      }
+    },
+    {
+      "run": "07",
+      "mode": "CPU samples and scheduling only",
+      "guarded_present_intervals": 2956,
+      "median_present_interval_ms": 6.6148050000000005,
+      "p95_present_interval_ms": 7.77944,
+      "playback_seconds": 20.010703488,
+      "guard_ms_each_end": 250,
+      "pause_notification_bound_proven": false,
+      "logger_epoch_uncertainty_ms": 6.232162,
+      "executable_sha256": "a8a299b270218ffc4cfb83eaa6c2037df5837e3bbd93f541801babf33ff5ef13",
+      "demo_sha256": "136bc8d43f55d2186f68acfe5a1fcfda0e81aff5cb9e55e2d3e663d0a7be6123",
+      "video_config_sha256": "3d1f886805396e4500c69ba0634f5f7aa0a3cc86734c83d6e5961e27c2e56ae3",
+      "window_size": [
+        1920,
+        1080
+      ],
+      "conditions_equal_before_after": true,
+      "insecure_argument": true,
+      "renderdoc_loaded": false,
+      "normal_game_user_verified": true,
+      "manual_gpu_workload_restore_verified": true,
+      "restore_timer_fired": false,
+      "cpu_ip_samples_whole_trace": 90435,
+      "scheduling_records_whole_trace": 934853,
+      "trace_duration_ns": 21405584208,
+      "artifact_sha256": {
+        "timeline.nsys-rep": "0223462f2e507aa9e137e6c0232cf73f1fc819d3b26fcaecab3d55cb7f2b6f9d",
+        "timeline.sqlite": "103c6f0b2d16924ba07f825ecb751c2d800cacaff2d192dd5c99f0c103d5dc3e",
+        "frames/summary.json": "f97ba627e60ec4e062bef18cedff8c523359f0730b5f6016e343123c5c31d792",
+        "frames/frames.csv": "295be5f3a876b2f054d8b1c1c8194afc088dc4af1e7d7088f85f47e9e227c72f",
+        "restore.json": "3a3e82edc671af2510f46d392475694e7cd04b6d2a50273e0b97676ed362c836",
+        "maps-after-playback.txt": "d2e3fbb59452e9703185e502ec24a7c6cb36fcb5dc0daef08a79529871b2ff8f",
+        "playback-times.json": "397f29fa8393fe04799847493891429c0eb9e0b76bc4ef66212c63b092aa2fd0",
+        "game-module-identities.json": "1e26167472f33f1d2524ee1fc2d782a88a5c5d809432dac105f29ef7da5fb63b",
+        "cpu-analysis.json": "8a9237770f62b77ffc8a570596d8c2868fb7f5a57cfb2c51d8dc150287aac3ae",
+        "maps-before-collection.txt": "51d16acb8dd1876c1f0be4e1deebcf0ef2044b28f5ef6087f59446e44c5ab455"
+      },
+      "gpu_timing_collected": false,
+      "api_trace_tables_present": false,
+      "diagnostic_warnings_or_errors": 0,
+      "cpu_collection": {
+        "scope": "process-tree",
+        "event": "Reference Cycles",
+        "period": 2000000,
+        "backtrace": "DWARF",
+        "ip_samples_per_backtrace": 4
+      },
+      "cpu_guarded_window": {
+        "duration_seconds": 19.510360687,
+        "leaf_samples": 82380,
+        "kernel_samples": 42,
+        "unmapped_user_samples": 0,
+        "unresolved_symbols": 82319,
+        "mapping_basis": "before and after endpoint maps",
+        "mapping_limit": "Endpoint maps do not rule out transient unloads or address reuse during playback.",
+        "samples_in_mappings_changed_between_snapshots": 0,
+        "module_leaf_samples": [
+          [
+            "libscenesystem.so",
+            12021
+          ],
+          [
+            "libvphysics2.so",
+            11426
+          ],
+          [
+            "librendersystemvulkan.so",
+            10738
+          ],
+          [
+            "libnvidia-glcore.so.615.71.09",
+            8980
+          ],
+          [
+            "libtier0.so",
+            7392
+          ],
+          [
+            "libclient.so",
+            6397
+          ],
+          [
+            "libsoundsystem.so",
+            5310
+          ],
+          [
+            "libmaterialsystem2.so",
+            5075
+          ],
+          [
+            "libc.so.6",
+            4759
+          ],
+          [
+            "libpanorama.so",
+            3303
+          ],
+          [
+            "libparticles.so",
+            2417
+          ],
+          [
+            "libengine2.so",
+            1466
+          ],
+          [
+            "libv8.so",
+            620
+          ],
+          [
+            "libm.so.6",
+            589
+          ],
+          [
+            "libanimationsystem.so",
+            392
+          ],
+          [
+            "libnetworksystem.so",
+            158
+          ],
+          [
+            "libserver.so",
+            130
+          ],
+          [
+            "libpanorama_text_pango.so",
+            113
+          ],
+          [
+            "ld-linux-x86-64.so.2",
+            108
+          ],
+          [
+            "[vdso]",
+            99
+          ],
+          [
+            "libglib-2.0.so.0.6600.8",
+            78
+          ],
+          [
+            "libSDL3.so.0",
+            77
+          ],
+          [
+            "libpango-1.0.so.0",
+            76
+          ],
+          [
+            "[anonymous]",
+            58
+          ],
+          [
+            "libMangoHud.so",
+            57
+          ],
+          [
+            "libharfbuzz.so.0.20704.0",
+            51
+          ],
+          [
+            "libresourcesystem.so",
+            45
+          ],
+          [
+            "steamclient.so",
+            45
+          ],
+          [
+            "[kernel]",
+            42
+          ],
+          [
+            "libmeshsystem.so",
+            35
+          ],
+          [
+            "libfreetype.so.6",
+            30
+          ],
+          [
+            "libworldrenderer.so",
+            29
+          ],
+          [
+            "libgobject-2.0.so.0.6600.8",
+            28
+          ],
+          [
+            "libvideo.so",
+            27
+          ],
+          [
+            "libsteamnetworkingsockets.so",
+            26
+          ],
+          [
+            "libpangoft2-1.0.so.0",
+            24
+          ],
+          [
+            "libsteamaudio.so",
+            17
+          ],
+          [
+            "libv8_libbase.so",
+            14
+          ],
+          [
+            "libmatchmaking.so",
+            14
+          ],
+          [
+            "libsteam_api.so",
+            13
+          ],
+          [
+            "liblocalize.so",
+            12
+          ],
+          [
+            "libpanoramauiclient.so",
+            11
+          ],
+          [
+            "libinputsystem.so",
+            11
+          ],
+          [
+            "libX11.so.6.4.0",
+            9
+          ],
+          [
+            "libGLX_nvidia.so.615.71.09",
+            9
+          ],
+          [
+            "libvconcomm.so",
+            8
+          ],
+          [
+            "libxcb.so.1.1.0",
+            7
+          ],
+          [
+            "libudev.so.1.7.8",
+            5
+          ],
+          [
+            "libfribidi.so.0.4.0",
+            5
+          ],
+          [
+            "libvscript.so",
+            4
+          ],
+          [
+            "libscenefilecache.so",
+            3
+          ],
+          [
+            "libv8_libplatform.so",
+            3
+          ],
+          [
+            "libToolsInjection64.so",
+            3
+          ],
+          [
+            "libphonon.so",
+            3
+          ],
+          [
+            "libv8system.so",
+            3
+          ],
+          [
+            "libhost.so",
+            2
+          ],
+          [
+            "libfilesystem_stdio.so",
+            1
+          ],
+          [
+            "libfontconfig.so.1",
+            1
+          ],
+          [
+            "libpulse_system.so",
+            1
+          ]
+        ],
+        "clock_read_width_ns": {
+          "logger_start_sent": 9896,
+          "first_log_observed": 5855,
+          "resume_sent": 9296,
+          "resume_acknowledged": 3575,
+          "pause_received": 8521
+        },
+        "raw_minus_monotonic_offset_change_ns": 342801,
+        "scope": "Instrumented CS2 CPU samples in a monotonic-clock guarded playback window. Not exact MangoHUD row alignment. No critical-path or speedup claim."
+      },
+      "game_module_identity_count": 58,
+      "threads_added_between_snapshots": 1,
+      "threads_removed_between_snapshots": 0
+    }
+  ],
+  "evidence_limit": "Run06 used an old controller name and overwrote run05 starting maps, process snapshot, start diagnostics, and phase log. Run05 attribution now uses only its intact ending map. Raw trace, frame records, playback anchors, ending map, and module hashes remain intact. Run07 uses fresh paths and an overwrite guard.",
+  "decision": "Inspect scene and physics worker routines for bounded jobs. CPU sample shares do not prove critical-path time, state ownership, or offload benefit. Keep the tiny captured reduction as a replay canary.",
+  "private_helper_sha256": {
+    "cpu_analysis.py": "c75e22b0e03ca76ea50f53126df7b99faaf9cf61448f3bc70c30303e1b34a243",
+    "report_export.py": "20959f1d1fac9ba656d215350aa72341d790e8ed945b2443c1bb3ffda23f4828",
+    "fixed_demo_benchmark.py": "e7835ad4ef4ad15930912bb23c9d2216f3191078719356a17239973819d6f899",
+    "run_04_orchestrator.py": "a005194aada44d6b99bb235a95dfe0b738f3c7824086a47ffc4d970e6e5878c2",
+    "run_04_controller.py": "e326da38e1cedbdc49142b6b4888a5df03d0683d4724fad24347a7681a1a9247",
+    "run_04_launcher.sh": "c0024d3d1925a3d2106749e30cd729324351a656aa8c2556a9e38173bb819d40",
+    "run_05_orchestrator.py": "bb83cad1b721be6737f3f04cc86b2131e59075bd05adaaad0795f2793b4a4264",
+    "run_05_controller.py": "1a070551ebb50e39c1c7330a4262bf964da4d80d2ad56d3bb29472426fe5e1e6",
+    "run_05_launcher.sh": "6f913413380aedbe2af82c6aaf4b0b51915f5acd5423dff1bff3f7aaa98239e2",
+    "run_07_orchestrator.py": "9b6b71a4458ad34da009bcf09d957ee5d68fa6749551643d9dc885fd823d1ca7",
+    "run_07_controller.py": "fd4aa3a9b37a3da2a08e5f06a35843dae60697fa93d201315bc8f772e6e9959c",
+    "run_07_launcher.sh": "dacb50ed112e3f1eebfdf53c9f9508269e24852488799ea9a526f681a387353f"
+  }
+}
